@@ -117,40 +117,33 @@
 				var $sections = $('section');
 				var $navLinks = $('#heading-list ul li a');
 			
-				// Function to check and highlight the active section
 				function highlightCurrentSection() {
 					var scrollPosition = $window.scrollTop();
-					var windowBottom = scrollPosition + $window.height();
+					var windowHeight = $window.height();
 					var documentHeight = $(document).height();
-			
-					var foundSection = false;
+					var triggerPoint = windowHeight * 0.65; // 65% of the window height
 			
 					$sections.each(function() {
-						var sectionTop = $(this).offset().top - 50; // Offset for header height
-						var sectionBottom = sectionTop + $(this).outerHeight();
+						var sectionTop = $(this).offset().top;
+						var sectionHeight = $(this).outerHeight();
 			
-						if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-							var id = $(this).attr('id');
+						// Calculate the point at which to trigger the section change
+						if (scrollPosition >= sectionTop - triggerPoint && scrollPosition < sectionTop + sectionHeight - triggerPoint) {
 							$navLinks.removeClass('active');
-							$navLinks.filter('[href="#' + id + '"]').addClass('active');
-							foundSection = true;
+							$navLinks.filter('[href="#' + $(this).attr('id') + '"]').addClass('active');
 						}
 					});
 			
-					// If no section is found and we're at the bottom of the page, activate the last section
-					if (!foundSection && windowBottom >= documentHeight - 10) {
-						var lastSection = $sections.last().attr('id');
+					// Handle the case when at the bottom of the page
+					if (scrollPosition + windowHeight >= documentHeight - 10) {
 						$navLinks.removeClass('active');
-						$navLinks.filter('[href="#' + lastSection + '"]').addClass('active');
+						$navLinks.filter('[href="#' + $sections.last().attr('id') + '"]').addClass('active');
 					}
 				}
 			
-				// Call the function when scrolling
+				// Trigger on scroll and load
 				$window.on('scroll', highlightCurrentSection);
-			
-				// Trigger highlight on page load
-				highlightCurrentSection();
+				highlightCurrentSection(); // Initial call to highlight the first section
 			});
-			
 
 })(jQuery);

@@ -121,7 +121,7 @@
 					var scrollPosition = $window.scrollTop();
 					var windowHeight = $window.height();
 					var documentHeight = $(document).height();
-					var triggerPoint = windowHeight * 0.65; // 65% of the window height
+					var triggerPoint = windowHeight * 0.45; // 65% of the window height
 			
 					$sections.each(function() {
 						var sectionTop = $(this).offset().top;

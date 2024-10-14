@@ -3219,3 +3219,44 @@ input, select, textarea {
 			}
 
 	}
+
+	/* Heading List Navigation */
+#heading-list {
+    position: fixed;
+    top: 50%;
+    left: 1em;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+#heading-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#heading-list ul li {
+    margin-bottom: 1em;
+}
+
+#heading-list ul li a {
+    text-decoration: none;
+    color: #49bf9d;
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#heading-list ul li a.active {
+    background-color: #49bf9d;
+    color: white;
+}
+
+/* Adjust layout to account for the navigation */
+@media screen and (max-width: 980px) {
+    #heading-list {
+        display: none; /* Hide the navigation on smaller screens */
+    }
+}

@@ -5,20 +5,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update active state on scroll
     function updateActiveSection() {
         let currentSection = '';
-        const scrollPosition = window.scrollY;
+        const scrollPosition = window.scrollY + (window.innerHeight / 2);
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
         
-        // Check if we're at the very top
-        if (scrollPosition < 100) {
-            currentSection = 'one'; // Default to About section at top
+        // Check if we're at the very top (within first 100px)
+        if (scrollTop < 100) {
+            currentSection = 'one';  // About section
         }
-        // Check if we're at the bottom
-        else if ((window.innerHeight + scrollPosition) >= document.documentElement.scrollHeight - 50) {
-            currentSection = 'three'; // Contact section
+        // Check if we're near the bottom (last section fully visible)
+        else if (scrollTop + windowHeight >= documentHeight - 100) {
+            currentSection = 'three';  // Contact section
         }
+        // Otherwise check which section is in view
         else {
-            // Find the current section
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100; // Add offset for better detection
+                const sectionTop = section.offsetTop;
                 const sectionBottom = sectionTop + section.offsetHeight;
                 
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {

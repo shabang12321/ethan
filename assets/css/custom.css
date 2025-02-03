@@ -28,42 +28,39 @@
     margin: 1.2em 0;
 }
 
+/* Base nav link styles */
 #heading-list .nav-link {
     color: #ffffff;
     text-decoration: none;
     font-size: 0.9em;
     font-weight: 500;
-    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
-    padding: 0.5em 0;
+    padding: 0.5em 1em;  /* Consistent padding */
     display: block;
     border-bottom: none;
+    transition: all 0.3s ease;  /* Single transition definition */
+    border-radius: 4px;  /* Consistent border radius */
 }
 
+/* Hover state */
 #heading-list .nav-link:hover {
-    color: #000000;
+    color: #000000 !important;  /* Force black text */
     transform: translateX(-3px);
     background-color: #4acaa8;
-    padding: 0.5em 1em;
-    border-radius: 4px;
 }
 
-#heading-list .nav-link::after {
-    display: none;
-}
-
-/* Add these styles for the active state */
+/* Active state */
 #heading-list .nav-link.active {
-    color: #000000;
+    color: #000000 !important;  /* Force black text */
     transform: translateX(-3px);
     background-color: #4acaa8;
-    padding: 0.5em 1em;
-    border-radius: 4px;
 }
 
-#heading-list .nav-list .nav-link.active::after {
+/* Remove underline effect */
+#heading-list .nav-link::after,
+#heading-list .nav-link.active::after {
     display: none;
 }
 
@@ -215,5 +212,73 @@
     
     #header h1 {
         font-size: 1em;
+    }
+}
+
+/* Header footer styling */
+.header-footer {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+    z-index: 1;
+    text-align: left;
+}
+
+.header-footer .icons {
+    margin-bottom: 1em;
+    padding-left: 0;
+    text-align: left;
+}
+
+.header-footer .icons li {
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.header-footer .icons a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.header-footer .icons a:hover {
+    color: #4acaa8;
+}
+
+.header-footer .copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    padding-left: 0;
+}
+
+.header-footer .copyright li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border-left: solid 1px rgba(255, 255, 255, 0.3);
+    padding: 0 0.75em;
+    line-height: 1;
+}
+
+.header-footer .copyright li:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+/* Update responsive styles */
+@media screen and (max-width: 736px) {
+    .header-footer {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 2em 0 0 2em;
+        text-align: left;
+    }
+    
+    .header-footer .icons {
+        margin-bottom: 0.5em;
     }
 } 

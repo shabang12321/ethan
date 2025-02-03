@@ -6,6 +6,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/custom.css" />
 	<link rel="icon" href="images/favicon.png" type="image/png">
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
@@ -15,21 +16,24 @@
 	<!-- Side Nav Tracker Heading List -->
 	<nav id="heading-list">
 		<ul>
-			<li><a href="#one">About Me</a></li>
-			<li><a href="#two">Skills</a></li>
-			<li><a href="#three">Contact</a></li>
+			<li><a href="#one" class="nav-link">About</a></li>
+			<li><a href="#two" class="nav-link">Skills</a></li>
+			<li><a href="#projects" class="nav-link">Projects</a></li>
+			<li><a href="#three" class="nav-link">Contact</a></li>
 		</ul>
 	</nav>
 
 	<!-- Header -->
 	<header id="header">
+		<div id="header-background"></div>
 		<div class="inner">
 			<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-			<h1><strong>Generating...</strong><br />
-				</a>coming soon.</h1>
+			<h1>
+				<strong>Ethan Shahbaz</strong>
+				<span>Mechatronic Engineer</span>
+				<span>& Tech Innovator</span>
+			</h1>
 		</div>
-		<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.30/build/spline-viewer.js"></script>
-		<spline-viewer url="https://prod.spline.design/wplb18lXUgi1-RC6/scene.splinecode"></spline-viewer>
 	</header>
 
 	<!-- Main -->
@@ -38,93 +42,91 @@
 		<!-- One -->
 		<section id="one">
 			<header class="major">
-				<h2>Ipsum lorem dolor aliquam ante commodo<br />
-					magna sed accumsan arcu neque.</h2>
+				<h2>About Me</h2>
 			</header>
-			<p>This is filler text, absolute jibberish. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia
-				ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque
-				commodo blandit enim arcu non at amet id arcu magna.</p>
+			<p>I am an articulate and enthusiastic final-year Mechatronic Engineering student with leadership experience. Focused on leveraging technology to drive innovation and improve quality of life, I bring a passion for delivering forward-thinking solutions to complex challenges through collaboration and creativity. My journey is inspired by my parents' resilience, driving me to create positive technological change.</p>
 			<ul class="actions">
-				<li><a href="#" class="button">Learn More</a></li>
+				<li><a href="#" class="button">Download Resume</a></li>
 			</ul>
 		</section>
 
 		<!-- Two -->
 		<section id="two">
-			<h2>Recent Work</h2>
+			<h2>Skills & Expertise</h2>
+			<div class="row">
+				<article class="col-6 col-12-xsmall work-item">
+					<h3>Programming</h3>
+					<p>Java, Python, C/C++, MATLAB, Object-Oriented Programming, Algorithms & Data Structures</p>
+				</article>
+				<article class="col-6 col-12-xsmall work-item">
+					<h3>Software</h3>
+					<p>Simulink, GitHub, COMSOL Multiphysics, ABB RobotStudio, ROS, 3D CAD, LTspice, MPLAB X IDE</p>
+				</article>
+				<article class="col-6 col-12-xsmall work-item">
+					<h3>Mechatronics</h3>
+					<p>Microprocessors, Wireless Communications, PLCs, Mechanics & 3D printing, Embedded Systems, MEMS</p>
+				</article>
+				<article class="col-6 col-12-xsmall work-item">
+					<h3>Project Management</h3>
+					<p>Team Leadership, Systems Engineering, Quality Assurance, Stakeholder Engagement</p>
+				</article>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects">
+			<h2>Featured Projects</h2>
 			<div class="row">
 				<article class="col-6 col-12-xsmall work-item">
 					<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-					<h3>Magna sed consequat tempus</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+					<h3>Edge Computing for Autonomous Swarms</h3>
+					<p>Thesis project focusing on navigation and collision avoidance strategies for autonomous drone swarms.</p>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-					<h3>Ultricies lacinia interdum</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+					<h3>Drone Monitoring System</h3>
+					<p>Developed a wireless GUI for real-time sensor feedback and power supply monitoring in MURC.</p>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-					<h3>Tortor metus commodo</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+					<h3>E-Commerce Automation</h3>
+					<p>Built and managed four successful online brands with automated systems and marketing funnels.</p>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-					<h3>Quam neque phasellus</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-				</article>
-				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-					<h3>Nunc enim commodo aliquet</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-				</article>
-				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-					<h3>Risus ornare lacinia</h3>
-					<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+					<h3>Business Digital Transformation</h3>
+					<p>Implemented cloud-based systems for quote & invoice processes at E&E Building Services.</p>
 				</article>
 			</div>
-			<ul class="actions">
-				<li><a href="#" class="button">Full Portfolio</a></li>
-			</ul>
 		</section>
 
 		<!-- Three -->
 		<section id="three">
 			<h2>Get In Touch</h2>
-			<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu
-				lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+			<p>I'm always interested in new opportunities, collaborations, and innovative projects. Feel free to reach out!</p>
 			<div class="row">
 				<div class="col-8 col-12-small">
 					<form method="post" action="#">
 						<div class="row gtr-uniform gtr-50">
-							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name"
-									placeholder="Name" /></div>
-							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email"
-									placeholder="Email" /></div>
-							<div class="col-12"><textarea name="message" id="message" placeholder="Message"
-									rows="4"></textarea></div>
+							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+							<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
 						</div>
+						<ul class="actions" style="margin-top: 2em;">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
 					</form>
-					<ul class="actions">
-						<li><input type="submit" value="Send Message" /></li>
-					</ul>
 				</div>
 				<div class="col-4 col-12-small">
 					<ul class="labeled-icons">
 						<li>
-							<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-							1234 Somewhere Rd.<br />
-							Sydney, NSW 2000<br />
-							Australia, Earth
-						</li>
-						<li>
-							<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-							000-000-0000
+							<h3 class="icon solid fa-home"><span class="label">Location</span></h3>
+							Sydney, NSW<br />
+							Australia
 						</li>
 						<li>
 							<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-							<a href="#">hello@untitled.tld</a>
+							<a href="mailto:your.email@example.com">your.email@example.com</a>
 						</li>
 					</ul>
 				</div>
@@ -473,6 +475,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/magnetLines.js"></script>
+	<script src="assets/js/clickSpark.js"></script>
+	<script src="assets/js/navigation.js"></script>
+	<script>
+		// Initialize click spark with custom settings
+		createClickSpark({
+			sparkColor: '#4acaa8', // Match your theme color
+			sparkSize: 8,
+			sparkRadius: 12,
+			sparkCount: 10,
+			duration: 500,
+			extraScale: 1.2
+		});
+	</script>
 
 </body>
 

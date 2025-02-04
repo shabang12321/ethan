@@ -303,34 +303,36 @@
     display: none;
     position: fixed;
     top: 20px;
-    left: 20px;  /* Changed from right to left */
+    left: 20px;
     z-index: 1000;
     width: 30px;
     height: 24px;
     cursor: pointer;
-    background: transparent;  /* Remove background */
-    padding: 0;  /* Remove padding */
+    background: rgba(36, 36, 36, 0.9);  /* Add dark background */
+    padding: 12px;  /* Add padding for the box */
+    border-radius: 5px;  /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
 }
 
 .mobile-menu-button span {
     display: block;
     position: absolute;
-    width: 100%;
+    width: 30px;  /* Adjust width to match new container */
     height: 2px;
     background-color: #fff;
     transition: all 0.3s ease;
-    left: 0;
+    left: 12px;  /* Adjust position for padding */
 }
 
-/* Position the three lines */
-.mobile-menu-button span:nth-child(1) { top: 0; }
-.mobile-menu-button span:nth-child(2) { top: 11px; }
-.mobile-menu-button span:nth-child(3) { top: 22px; }
+/* Position the three lines with new spacing */
+.mobile-menu-button span:nth-child(1) { top: 12px; }
+.mobile-menu-button span:nth-child(2) { top: 23px; }
+.mobile-menu-button span:nth-child(3) { top: 34px; }
 
 /* Hamburger Animation */
 .mobile-menu-button.active span:nth-child(1) {
     transform: rotate(45deg);
-    top: 11px;
+    top: 23px;  /* Adjust for new positioning */
 }
 
 .mobile-menu-button.active span:nth-child(2) {
@@ -339,14 +341,14 @@
 
 .mobile-menu-button.active span:nth-child(3) {
     transform: rotate(-45deg);
-    top: 11px;
+    top: 23px;  /* Adjust for new positioning */
 }
 
 #mobile-nav {
     display: none;
     position: fixed;
     top: 0;
-    left: -250px;  /* Changed from right to left */
+    left: -250px;
     width: 250px;
     height: 100vh;
     background: rgba(36, 36, 36, 0.95);
@@ -357,7 +359,7 @@
 }
 
 #mobile-nav.active {
-    left: 0;  /* Changed from right to left */
+    left: 0;
 }
 
 #mobile-nav ul {
@@ -388,25 +390,31 @@
     transition: all 0.3s ease;
 }
 
+/* Fix hover and active states to ensure black text */
 #mobile-nav .nav-link:hover,
+#mobile-nav .nav-link:active,
 #mobile-nav .nav-link.active {
-    color: #000;
+    color: #000 !important;  /* Force black text */
     background-color: #4acaa8;
+}
+
+/* Ensure immediate color change on touch */
+#mobile-nav .nav-link:focus {
+    color: #000 !important;
 }
 
 /* Show mobile menu on small screens */
 @media screen and (max-width: 736px) {
     .mobile-menu-button {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 48px;  /* Increased touch target */
+        width: 48px;  /* Make it square */
     }
     
     #mobile-nav {
         display: block;
     }
-    
-    /* Add animation delay for menu items */
-    #mobile-nav li:nth-child(1) { transition-delay: 0.1s; }
-    #mobile-nav li:nth-child(2) { transition-delay: 0.2s; }
-    #mobile-nav li:nth-child(3) { transition-delay: 0.3s; }
-    #mobile-nav li:nth-child(4) { transition-delay: 0.4s; }
 } 

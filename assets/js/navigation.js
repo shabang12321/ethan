@@ -4,37 +4,49 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update active state on scroll
     function updateActiveSection() {
-        let currentSection = '';
         const scrollPosition = window.scrollY + (window.innerHeight / 2);
         const scrollTop = window.scrollY;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
         
-        // Check if we're at the very top (within first 100px)
+        // Check if we're at the very top
         if (scrollTop < 100) {
-            currentSection = 'one';  // About section
-        }
-        // Check if we're near the bottom (last section fully visible)
-        else if (scrollTop + windowHeight >= documentHeight - 100) {
-            currentSection = 'three';  // Contact section
-        }
-        // Otherwise check which section is in view
-        else {
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    currentSection = section.id;
-                }
-            });
+            setActiveSection('one');
+            return;
         }
         
-        // Update active states
+        // Check if we're at the bottom
+        if (scrollTop + windowHeight >= documentHeight - 100) {
+            setActiveSection('three');
+            return;
+        }
+
+        // Find the closest section
+        let closestSection = null;
+        let closestDistance = Infinity;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionMiddle = sectionTop + (section.offsetHeight / 2);
+            const distance = Math.abs(scrollPosition - sectionMiddle);
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestSection = section;
+            }
+        });
+
+        if (closestSection) {
+            setActiveSection(closestSection.id);
+        }
+    }
+
+    // Helper function to set active section
+    function setActiveSection(sectionId) {
         navLinks.forEach(link => {
             const href = link.getAttribute('href').slice(1);
             link.classList.remove('active');
-            if (href === currentSection) {
+            if (href === sectionId) {
                 link.classList.add('active');
             }
         });
@@ -43,12 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update active state on click
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();  // Prevent default hash behavior
+            e.preventDefault();
             const targetId = this.getAttribute('href').slice(1);
             
             // Update active state immediately
-            navLinks.forEach(link => link.classList.remove('active'));
-            this.classList.add('active');
+            setActiveSection(targetId);
             
             // Smooth scroll to target without changing URL
             const targetSection = document.getElementById(targetId);
@@ -57,17 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
-                
-                // Force active state after scroll
-                setTimeout(() => {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                }, 100);
             }
         });
     });
     
-    // Throttled scroll listener for better performance
+    // Throttled scroll listener
     let ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -82,6 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check
     updateActiveSection();
     
-    // Update on page load to ensure correct highlighting
+    // Update on page load
     window.addEventListener('load', updateActiveSection);
 }); 

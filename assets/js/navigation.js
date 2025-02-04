@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('#heading-list .nav-link');
+    const navLinks = document.querySelectorAll('#heading-list .nav-link, #mobile-nav .nav-link');
     
     // Update active state on scroll
     function updateActiveSection() {
@@ -43,17 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update active state on click
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault();  // Prevent default hash behavior
             const targetId = this.getAttribute('href').slice(1);
             
             // Update active state immediately
             navLinks.forEach(link => link.classList.remove('active'));
             this.classList.add('active');
             
-            // Smooth scroll to target
+            // Smooth scroll to target without changing URL
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                targetSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
                 
                 // Force active state after scroll
                 setTimeout(() => {

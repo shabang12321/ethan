@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update active states
         navLinks.forEach(link => {
-            const section = link.getAttribute('data-section');
+            const href = link.getAttribute('href').slice(1);
             link.classList.remove('active');
-            if (section === currentSection) {
+            if (href === currentSection) {
                 link.classList.add('active');
             }
         });
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();  // Prevent default hash behavior
-            const targetId = this.getAttribute('data-section');
+            const targetId = this.getAttribute('href').slice(1);
             
             // Update active state immediately
             navLinks.forEach(link => link.classList.remove('active'));

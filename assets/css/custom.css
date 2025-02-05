@@ -287,6 +287,12 @@
 .image.avatar {
     overflow: hidden;
     border-radius: 50%;  /* Keep the circular shape */
+    cursor: default;
+}
+
+.image.avatar a {
+    pointer-events: none;
+    cursor: default;
 }
 
 .image.avatar img {
@@ -296,6 +302,11 @@
     height: 100%;
     object-fit: cover;  /* Ensures the image covers the area without distortion */
     object-position: center center;  /* Centers the image */
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+    cursor: default;
 }
 
 /* Mobile Menu Styles */

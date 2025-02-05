@@ -3,9 +3,6 @@
 .env.local
 .env.*.local
 
-# Configuration
-config.js
-
 # Local development
 *.bat
 start-local-server.bat
@@ -67,4 +64,3 @@ desktop.ini
 *.local
 local.*
 dev.*
-!config.js  # Explicitly keep config.js in version control

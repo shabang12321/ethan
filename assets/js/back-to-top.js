@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Show button when scrolling down
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
+        if (window.scrollY > 300) {
             backToTop.classList.add('visible');
         } else {
             backToTop.classList.remove('visible');

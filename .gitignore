@@ -63,4 +63,4 @@ desktop.ini
 *.local
 local.*
 dev.*
-!config.js  # Explicitly keep config.js in version control 
+!config.js  # Explicitly keep config.js in version control

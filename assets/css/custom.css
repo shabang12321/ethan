@@ -321,13 +321,13 @@
     height: 2px;
     background-color: #fff;
     transition: all 0.3s ease;
-    left: 12px;  /* Adjust position for padding */
+    left: 9px;  /* Center the lines */
 }
 
 /* Position the three lines with new spacing */
-.mobile-menu-button span:nth-child(1) { top: 12px; }
+.mobile-menu-button span:nth-child(1) { top: 14px; }
 .mobile-menu-button span:nth-child(2) { top: 23px; }
-.mobile-menu-button span:nth-child(3) { top: 34px; }
+.mobile-menu-button span:nth-child(3) { top: 32px; }
 
 /* Hamburger Animation */
 .mobile-menu-button.active span:nth-child(1) {
@@ -388,14 +388,16 @@
     padding: 12px 15px;
     border-radius: 4px;
     transition: all 0.3s ease;
+    border-bottom: none;  /* Remove underline */
 }
 
 /* Fix hover and active states to ensure black text */
 #mobile-nav .nav-link:hover,
 #mobile-nav .nav-link:active,
 #mobile-nav .nav-link.active {
-    color: #000 !important;  /* Force black text */
+    color: #000 !important;
     background-color: #4acaa8;
+    border-bottom: none;  /* Ensure no underline on hover/active */
 }
 
 /* Ensure immediate color change on touch */
@@ -461,4 +463,64 @@
         bottom: 20px;
         right: 20px;
     }
-} 
+}
+
+/* Skills section icons */
+@keyframes gentle-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.work-item h3 i {
+    margin-right: 12px;
+    color: #4acaa8;
+    background: rgba(74, 202, 168, 0.15);
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+.work-item h3 {
+    display: flex;
+    align-items: center;
+}
+
+/* Stop animation and change style on hover */
+.work-item h3:hover i {
+    animation: none;
+    transform: translateY(-2px);
+    background: rgba(74, 202, 168, 0.2);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+}
+
+/* Stagger animation for each icon */
+.work-item:nth-child(1) h3 i { animation-delay: 0s; }
+.work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
+.work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
+.work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
+
+/* Responsive adjustments for icons */
+@media screen and (max-width: 736px) {
+    .work-item h3 i {
+        padding: 6px;
+        min-width: 28px;
+    }
+}
+
+/* Adjust section heading sizes */
+#main h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* Responsive adjustment */
+@media screen and (max-width: 736px) {
+    #main h2 {
+        font-size: 1.3em;
+    }
+}

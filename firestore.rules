@@ -10,6 +10,11 @@ service cloud.firestore {
       return next == current + 1;
     }
 
+    // Allow read access to test collection
+    match /test/{document=**} {
+      allow read: if true;
+    }
+
     // Visitor counter - allow read and increment by one
     match /stats/visitors {
       allow read: if true;

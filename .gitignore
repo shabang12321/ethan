@@ -1,1 +1,66 @@
- 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Configuration
+config.js
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Logs and debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Dependencies
+/node_modules/
+/bower_components/
+
+# Firebase
+.firebase/
+.firebaserc
+firebase.json
+firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+
+# Build and output directories
+/dist/
+/build/
+/.next/
+/out/
+/public/
+
+# Cache and temporary files
+.cache/
+.npm/
+.eslintcache
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Local development files
+*.local
+local.*
+dev.*
+!config.js  # Explicitly keep config.js in version control 

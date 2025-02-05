@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isValidCount(count) {
+      return count is number && count >= 0;
+    }
+    
+    function isIncrementByOne(current, next) {
+      return next == current + 1;
+    }
+
+    // Visitor counter
+    match /stats/visitors {
+      allow read: if true;
+      allow update: if isValidCount(request.resource.data.count) 
+                   && isIncrementByOne(resource.data.count, request.resource.data.count);
+      allow create: if isValidCount(request.resource.data.count) 
+                   && request.resource.data.count == 0;
+    }
+    
+    // Project likes
+    match /projects/{projectId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['likes']) 
+                   && isValidCount(request.resource.data.likes)
+                   && request.resource.data.likes == 0;
+      allow update: if request.resource.data.keys().hasOnly(['likes'])
+                   && isValidCount(request.resource.data.likes)
+                   && isIncrementByOne(resource.data.likes, request.resource.data.likes);
+    }
+    
+    // Default deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 

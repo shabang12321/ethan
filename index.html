@@ -5,6 +5,7 @@
 	<title>e10</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://formspree.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.firebaseio.com https://*.cloudfunctions.net https://api.formspree.io; font-src 'self' data:;">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/custom.css" />
 	<link rel="stylesheet" href="assets/css/modal.css" />
@@ -176,9 +177,9 @@
 				<div class="col-8 col-12-small">
 					<form action="https://formspree.io/f/mgvoyqdj" method="POST">
 						<div class="row gtr-uniform gtr-50">
-							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" required /></div>
-							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" required /></div>
-							<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4" required></textarea></div>
+							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" required autocomplete="name" /></div>
+							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" required autocomplete="email" /></div>
+							<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4" required autocomplete="off"></textarea></div>
 						</div>
 						<ul class="actions" style="margin-top: 2em;">
 							<li><input type="submit" value="Send Message" /></li>

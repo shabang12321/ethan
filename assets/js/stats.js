@@ -3,7 +3,7 @@ const firebaseConfig = window.FIREBASE_CONFIG;
 
 // Verify configuration is present
 if (!firebaseConfig?.apiKey) {
-  console.error('Firebase configuration is missing');
+    console.error('Firebase configuration is missing or invalid:', firebaseConfig);
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -12,12 +12,23 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (!firebaseConfig?.apiKey) {
             throw new Error('Firebase API key is not configured');
         }
-        console.log('Initializing Firebase with config:', firebaseConfig);
+        console.log('Initializing Firebase with config:', {
+            authDomain: firebaseConfig.authDomain,
+            projectId: firebaseConfig.projectId
+        });
         
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         console.log('Firebase initialized successfully');
+        
+        // Test Firestore connection
+        try {
+            await db.collection('test').doc('test').get();
+            console.log('Firestore connection test successful');
+        } catch (error) {
+            console.error('Firestore connection test failed:', error);
+        }
         
         // Visitor Counter
         const visitorCountRef = db.collection('stats').doc('visitors');

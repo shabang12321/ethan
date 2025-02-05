@@ -6,6 +6,10 @@
 # Configuration
 config.js
 
+# Local development
+*.bat
+start-local-server.bat
+
 # IDE and Editor files
 .vscode/
 .idea/

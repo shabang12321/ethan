@@ -220,8 +220,25 @@
     position: absolute;
     bottom: 2em;
     left: 2em;
+    width: calc(100% - 4em);  /* Set specific width */
     z-index: 1;
+}
+
+.header-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 90%;  /* Reduce max width to pull content in */
+}
+
+.left-content {
     text-align: left;
+}
+
+.right-content {
+    text-align: right;
+    min-width: max-content;
+    margin-right: 1em;  /* Add some space from the right edge */
 }
 
 .header-footer .icons {
@@ -274,7 +291,17 @@
         position: relative;
         bottom: auto;
         left: auto;
+        right: auto;
         margin: 2em 0 0 2em;
+    }
+    
+    .header-footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+    }
+    
+    .right-content {
         text-align: left;
     }
     
@@ -550,4 +577,68 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+/* Contact form styling */
+#message {
+    resize: vertical;  /* Only allow vertical resizing */
+    min-height: 100px;  /* Minimum height */
+    max-height: 350px;  /* Maximum height */
+    width: 100% !important;  /* Force width to 100% */
+    box-sizing: border-box;  /* Include padding in width calculation */
+}
+
+/* Ensure the form container maintains its width */
+.row.gtr-uniform.gtr-50 {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Project likes styling */
+.project-stats {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.like-button:hover {
+    color: #ff4f4f;
+}
+
+.like-button.liked {
+    color: #ff4f4f;
+}
+
+.like-button i {
+    font-size: 1.2em;
+}
+
+.like-count {
+    font-size: 0.9em;
+}
+
+/* Visitor counter styling */
+.visitor-counter {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.visitor-counter i {
+    color: #4acaa8;
 }

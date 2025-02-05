@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/custom.css" />
+	<link rel="stylesheet" href="assets/css/modal.css" />
 	<link rel="icon" href="images/favicon.png" type="image/png">
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
@@ -52,15 +53,25 @@
 			</h1>
 		</div>
 		<div class="header-footer">
-			<ul class="icons">
-				<li><a href="https://www.linkedin.com/in/ethanshahbaz/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-				<li><a href="javascript:void(0);" class="icon brands fa-github"><span class="label">Github</span></a></li>
-				<li><a href="mailto:ethanshahbaz@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; eshahbaz</li>
-				<li>In-house Design</li>
-			</ul>
+			<div class="header-footer-content">
+				<div class="left-content">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/ethanshahbaz/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="javascript:void(0);" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:ethanshahbaz@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; eshahbaz</li>
+						<li>In-house Design</li>
+					</ul>
+				</div>
+				<div class="right-content">
+					<div class="visitor-counter">
+						<i class="fas fa-user-friends"></i>
+						<span id="visitor-count">Loading...</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</header>
 
@@ -81,7 +92,7 @@
 			<div class="row">
 				<article class="col-6 col-12-xsmall work-item">
 					<h3><i class="fas fa-code"></i> Programming</h3>
-					<p>Java, Python, C/C++, MATLAB, Algorithms & Data Structures, Object-Oriented Programming</p>
+					<p>Java, Python, C/C++, MATLAB, Algorithms & Data Structures, Object-Oriented Programming, Fullstack Development, Firebase.</p>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<h3><i class="fas fa-laptop-code"></i> Software</h3>
@@ -89,11 +100,11 @@
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<h3><i class="fas fa-robot"></i> Mechatronics</h3>
-					<p>Arduino, ESP32, Raspberry Pi, Wireless Communications, PLCs, Mechanics & 3D printing, Embedded Systems, Micro-Electromechanical Systems (MEMS), Prototyping, Testing & Validation</p>
+					<p>Arduino, ESP32, Raspberry Pi, Wireless Communications, PLCs, Mechanics & 3D printing, Embedded Systems, Micro-Electromechanical Systems (MEMS), Prototyping, Testing & Validation.</p>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
 					<h3><i class="fas fa-tasks"></i> Project Management</h3>
-					<p>Team Leadership, Systems Engineering, Quality Assurance, Stakeholder Engagement</p>
+					<p>Team Leadership, Systems Engineering, Quality Assurance, Stakeholder Engagement.</p>
 				</article>
 			</div>
 		</section>
@@ -103,24 +114,56 @@
 			<h2>Featured Projects</h2>
 			<div class="row">
 				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+					<a href="#" class="image fit thumb project-link" data-project="edge-computing">
+						<img src="images/thumbs/01.jpg" alt="Edge Computing Project" />
+					</a>
 					<h3>Edge Computing for Autonomous Swarm Robotics</h3>
 					<p>Thesis project focusing on edge computing as a solution for enhanced navigation & collision avoidance strategies for autonomous drone swarms.</p>
+					<div class="project-stats">
+						<button class="like-button" data-project="edge-computing">
+							<i class="fas fa-heart"></i>
+							<span class="like-count">0</span>
+						</button>
+					</div>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
+					<a href="#" class="image fit thumb project-link" data-project="drone-monitoring">
+						<img src="images/thumbs/02.jpg" alt="Drone Monitoring System" />
+					</a>
 					<h3>Drone Monitoring System</h3>
 					<p>Developed a wireless GUI for real-time sensor feedback, sensor-fusion and power supply monitoring.</p>
+					<div class="project-stats">
+						<button class="like-button" data-project="drone-monitoring">
+							<i class="fas fa-heart"></i>
+							<span class="like-count">0</span>
+						</button>
+					</div>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
+					<a href="#" class="image fit thumb project-link" data-project="ecommerce">
+						<img src="images/thumbs/03.jpg" alt="E-Commerce Automation" />
+					</a>
 					<h3>E-Commerce Automation</h3>
 					<p>Built and managed four successful online brands with automated systems and marketing strategies.</p>
+					<div class="project-stats">
+						<button class="like-button" data-project="ecommerce">
+							<i class="fas fa-heart"></i>
+							<span class="like-count">0</span>
+						</button>
+					</div>
 				</article>
 				<article class="col-6 col-12-xsmall work-item">
-					<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+					<a href="#" class="image fit thumb project-link" data-project="business-transformation">
+						<img src="images/thumbs/04.jpg" alt="Business Digital Transformation" />
+					</a>
 					<h3>Business Digital Transformation</h3>
 					<p>Implemented cloud-based systems for quote & invoice processes at E&E Building Services.</p>
+					<div class="project-stats">
+						<button class="like-button" data-project="business-transformation">
+							<i class="fas fa-heart"></i>
+							<span class="like-count">0</span>
+						</button>
+					</div>
 				</article>
 			</div>
 		</section>
@@ -165,8 +208,21 @@
 
 	</div>
 
+	<!-- Project Modal -->
+	<div id="project-modal" class="modal">
+		<div class="modal-content">
+			<span class="close-modal">&times;</span>
+			<img id="modal-image" src="" alt="Project Image">
+			<h3 id="modal-title"></h3>
+			<p id="modal-description"></p>
+		</div>
+	</div>
+
 	<!-- Scripts -->
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/stats.js"></script>
 	<script src="assets/js/jquery.poptrox.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
@@ -177,6 +233,7 @@
 	<script src="assets/js/navigation.js"></script>
 	<script src="assets/js/mobile-menu.js"></script>
 	<script src="assets/js/back-to-top.js"></script>
+	<script src="assets/js/modal.js"></script>
 	<script>
 		// Initialize click spark with custom settings
 		createClickSpark({

@@ -1,0 +1,106 @@
+#certifications {
+    padding: 2em 0;
+}
+
+#certifications .work-item {
+    margin-bottom: 2em;
+}
+
+#certifications .work-item a {
+    text-decoration: none;
+    border-bottom: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+#certifications .work-item h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+#certifications .work-item h3 i {
+    margin-right: 12px;
+    color: #4acaa8;
+    background: rgba(74, 202, 168, 0.15);
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+#certifications .work-item:hover h3 i {
+    animation: none;
+    transform: translateY(-2px);
+    background: rgba(74, 202, 168, 0.2);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+}
+
+#certifications .work-item p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Stagger animation for icons */
+#certifications .work-item:nth-child(1) h3 i { animation-delay: 0s; }
+#certifications .work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
+#certifications .work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
+#certifications .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
+
+/* Modal specific styles */
+#certification-modal .modal-info {
+    margin: 1em 0;
+    color: #666;
+}
+
+#certification-modal .modal-description {
+    color: #666;
+    line-height: 1.6;
+    margin: 1em 0;
+}
+
+#certification-modal .modal-skills {
+    margin: 1.5em 0;
+}
+
+#certification-modal .modal-skills h4 {
+    color: #333;
+    margin-bottom: 1em;
+}
+
+#certification-modal .skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+#certification-modal .skill-list li {
+    background: #f5f5f5;
+    color: #333;
+    padding: 0.3em 0.8em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+#certification-modal .button {
+    display: inline-block;
+    margin-top: 1em;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 736px) {
+    #certifications .work-item h3 i {
+        padding: 6px;
+        min-width: 28px;
+    }
+    
+    #certifications .work-item h3 {
+        font-size: 1.1em;
+    }
+}

@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const windowHeight = window.innerHeight;
                 const scrollProgress = 1 - (elementTop / windowHeight);
                 
-                // Only animate if element is in a good viewing position
-                if (scrollProgress >= 0.1 && !entry.target.classList.contains('animated')) {
+                // Trigger animation earlier (reduced from 0.1 to 0.05)
+                if (scrollProgress >= 0.05 && !entry.target.classList.contains('animated')) {
                     requestAnimationFrame(() => {
                         entry.target.classList.add('visible', 'animated');
                     });
@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5], // More threshold points for smoother detection
-        rootMargin: '-10% 0px -10% 0px' // Slightly reduced margin to ensure better timing
+        // More frequent threshold checks for smoother detection
+        threshold: [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3],
+        // Increased top margin to start animations earlier (-20% instead of -10%)
+        rootMargin: '-20% 0px -10% 0px'
     });
 
     // Add animation classes to sections and observe them

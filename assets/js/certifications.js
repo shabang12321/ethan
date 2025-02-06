@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const certifications = {
         'degree': {
             title: 'Bachelor of Engineering (Honours) in Mechatronic Engineering',
-            date: 'Expected December 2024',
+            date: 'Expected June 2025',
             credentialId: 'UTS-2024-ME-HONS',
             skills: [
                 'Robotics & Automation',
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Systems Engineering'
             ],
             description: 'A comprehensive engineering degree focusing on the integration of mechanical, electrical, and software systems. The program emphasizes hands-on experience with modern robotics, automation systems, and industry-standard tools while developing strong problem-solving and analytical skills.',
-            link: '#' // Add your credential link here
+            link: null // No credential link available
         },
         'ford': {
             title: 'Digital Advanced Program',
-            date: 'September 2023',
+            date: 'December 2024',
             credentialId: 'FORD-DAP-2023-091',
             skills: [
                 'Digital Innovation',
@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Project Management'
             ],
             description: 'An intensive program focused on digital transformation in the automotive industry. Gained hands-on experience with Ford\'s digital tools and methodologies, working on real-world challenges in vehicle development and manufacturing processes.',
-            link: 'https://www.theforage.com/virtual-internships/prototype/93Uc2AZhNQRRqhNDi/Ford-Motor-Company-Virtual-Experience-Program' // Update this link
+            link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/RwKkimvLMkHbEHKAA/NijmH479TnRZ73dLB_RwKkimvLMkHbEHKAA_RxreKoYBeNaWc6vkE_1735573520207_completion_certificate.pdf'
         },
         'ycombinator': {
             title: 'Startup Work Experience Program',
-            date: 'August 2023',
+            date: 'December 2024',
             credentialId: 'YC-SWE-2023-082',
             skills: [
                 'Startup Operations',
@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Innovation'
             ],
             description: 'A comprehensive program providing hands-on experience in startup operations and development. Learned key aspects of building and scaling technology startups, including product development, market analysis, and business strategy through Y Combinator\'s proven methodology.',
-            link: 'https://www.theforage.com/virtual-internships/prototype/oRMogWRHeewqHzA7u/Y-Combinator-Startup-Simulator' // Update this link
+            link: null // No credential link available
         },
         'deloitte': {
             title: 'Technology Consulting Virtual Experience Program',
-            date: 'July 2023',
+            date: 'August 2023',
             credentialId: 'DEL-TCP-2023-071',
             skills: [
                 'Technology Consulting',
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Client Management'
             ],
             description: 'An immersive program focusing on technology consulting practices at Deloitte. Gained experience in cloud computing, digital transformation strategies, and business analysis while working on realistic client scenarios and technology implementation projects.',
-            link: 'https://www.theforage.com/virtual-internships/prototype/YPWCiGNTkr6QxcpEu/Deloitte-STEM-Virtual-Experience-Program' // Update this link
+            link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Deloitte%20Australia/YPWCiGNTkr6QxcpEu_Deloitte%20Australia_RxreKoYBeNaWc6vkE_1690865187948_completion_certificate.pdf'
         }
     };
 
@@ -132,14 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.certification-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const certId = this.dataset.cert;
-            const cert = certifications[certId];
+            const selectedCertId = this.dataset.cert;
+            const cert = certifications[selectedCertId];
             
             certTitle.textContent = cert.title;
             certDate.textContent = cert.date;
-            certId.textContent = cert.credentialId;
             certDescription.textContent = cert.description;
-            certLink.href = cert.link;
             
             // Clear and populate skills
             certSkills.innerHTML = '';
@@ -148,6 +146,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 li.textContent = skill;
                 certSkills.appendChild(li);
             });
+            
+            // Only show credential button if link exists
+            if (cert.link) {
+                certLink.href = cert.link;
+                certLink.style.display = 'inline-block';
+                certId.style.display = 'block'; // Show the credential ID element
+                certId.textContent = cert.credentialId;
+            } else {
+                certLink.style.display = 'none';
+                certId.style.display = 'none'; // Hide the credential ID element
+            }
             
             certModal.classList.add('show');
             document.body.style.overflow = 'hidden';

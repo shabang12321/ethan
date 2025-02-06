@@ -1,5 +1,27 @@
 #certifications {
     padding: 2em 0;
+    background: rgba(74, 202, 168, 0.05);  /* Very subtle green tint */
+    position: relative;
+}
+
+#certifications::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(74, 202, 168, 0.2), transparent);
+}
+
+#certifications::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(74, 202, 168, 0.2), transparent);
 }
 
 #certifications .work-item {
@@ -11,6 +33,17 @@
     border-bottom: none;
     color: inherit;
     transition: all 0.3s ease;
+    padding: 1.5em;
+    display: block;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+#certifications .work-item a:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 202, 168, 0.15);
 }
 
 #certifications .work-item h3 {
@@ -51,24 +84,85 @@
 #certifications .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
 
 /* Modal specific styles */
+#certification-modal {
+    overflow-y: hidden;
+}
+
+#certification-modal .modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    padding: 2.5em;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 2.5vh auto;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(74, 202, 168, 0.5) transparent;
+}
+
+#certification-modal .modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#certification-modal .modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#certification-modal .modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(74, 202, 168, 0.5);
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
 #certification-modal .modal-info {
-    margin: 1em 0;
-    color: #666;
+    margin: 1.5em 0;
+    padding: 1.5em;
+    background: rgba(74, 202, 168, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(74, 202, 168, 0.1);
+}
+
+#certification-modal .modal-info p {
+    margin: 0.5em 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+#certification-modal .modal-info strong {
+    min-width: 120px;
+    color: #333;
 }
 
 #certification-modal .modal-description {
     color: #666;
-    line-height: 1.6;
-    margin: 1em 0;
+    line-height: 1.8;
+    margin: 1.5em 0;
+    padding: 0 0.5em;
 }
 
 #certification-modal .modal-skills {
-    margin: 1.5em 0;
+    margin: 2em 0;
 }
 
 #certification-modal .modal-skills h4 {
     color: #333;
     margin-bottom: 1em;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+#certification-modal .modal-skills h4::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background: #4acaa8;
+    margin-right: 0.8em;
+    border-radius: 2px;
 }
 
 #certification-modal .skill-list {
@@ -77,20 +171,42 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 0.8em;
 }
 
 #certification-modal .skill-list li {
-    background: #f5f5f5;
+    background: #f8f9fa;
     color: #333;
-    padding: 0.3em 0.8em;
-    border-radius: 4px;
+    padding: 0.5em 1em;
+    border-radius: 6px;
     font-size: 0.9em;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#certification-modal .skill-list li:hover {
+    background: rgba(74, 202, 168, 0.1);
+    border-color: rgba(74, 202, 168, 0.2);
+    transform: translateY(-1px);
 }
 
 #certification-modal .button {
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 2em;
+    padding: 0.8em 1.6em;
+    background: #4acaa8;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#certification-modal .button:hover {
+    background: #3db897;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 202, 168, 0.2);
 }
 
 /* Responsive adjustments */
@@ -102,5 +218,25 @@
     
     #certifications .work-item h3 {
         font-size: 1.1em;
+    }
+
+    #certification-modal .modal-content {
+        padding: 1.5em;
+    }
+
+    #certification-modal .modal-info {
+        padding: 1em;
+    }
+
+    #certification-modal .modal-info p {
+        flex-direction: column;
+    }
+
+    #certification-modal .modal-info strong {
+        margin-bottom: 0.3em;
+    }
+
+    #certification-modal .skill-list {
+        gap: 0.5em;
     }
 }

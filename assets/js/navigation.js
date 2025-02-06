@@ -2,77 +2,84 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('#heading-list .nav-link, #mobile-nav .nav-link');
     
-    // Update active state on scroll
     function updateActiveSection() {
-        const scrollPosition = window.scrollY + (window.innerHeight / 2);
-        const scrollTop = window.scrollY;
+        // Get scroll position and dimensions
+        const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
         const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+        );
         
-        // Check if we're at the very top
-        if (scrollTop < 100) {
-            setActiveSection('one');
+        // Check if we're at the top of the page
+        if (scrollPos === 0) {
+            setActiveSection('about');
             return;
         }
         
-        // Check if we're at the bottom
-        if (scrollTop + windowHeight >= documentHeight - 100) {
-            setActiveSection('three');
+        // Check if we're at the bottom of the page
+        if ((window.innerHeight + scrollPos) >= documentHeight - 2) {
+            setActiveSection('contact');
             return;
         }
-
-        // Find the closest section
-        let closestSection = null;
-        let closestDistance = Infinity;
-
+        
+        // For middle sections, calculate which one is most visible
+        let maxVisibleSection = null;
+        let maxVisibleAmount = 0;
+        
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionMiddle = sectionTop + (section.offsetHeight / 2);
-            const distance = Math.abs(scrollPosition - sectionMiddle);
+            const rect = section.getBoundingClientRect();
+            const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
             
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestSection = section;
+            if (visibleHeight > maxVisibleAmount) {
+                maxVisibleAmount = visibleHeight;
+                maxVisibleSection = section;
+            }
+            
+            // If a section takes up most of the viewport, prioritize it
+            if (visibleHeight > windowHeight * 0.7) {
+                maxVisibleSection = section;
+                return;
             }
         });
-
-        if (closestSection) {
-            setActiveSection(closestSection.id);
+        
+        if (maxVisibleSection) {
+            setActiveSection(maxVisibleSection.id);
         }
     }
-
-    // Helper function to set active section
+    
     function setActiveSection(sectionId) {
         navLinks.forEach(link => {
             const href = link.getAttribute('href').slice(1);
-            link.classList.remove('active');
             if (href === sectionId) {
                 link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
     }
     
-    // Update active state on click
+    // Handle clicks on navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').slice(1);
-            
-            // Update active state immediately
-            setActiveSection(targetId);
-            
-            // Smooth scroll to target without changing URL
             const targetSection = document.getElementById(targetId);
+            
             if (targetSection) {
-                targetSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
                 });
+                setActiveSection(targetId);
             }
         });
     });
     
-    // Throttled scroll listener
+    // Optimized scroll handler
     let ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -82,11 +89,22 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
     
-    // Initial check
+    // Initial update
     updateActiveSection();
     
-    // Update on page load
+    // Update after all content is loaded
     window.addEventListener('load', updateActiveSection);
+    
+    // Handle dynamic content and resize
+    const observer = new ResizeObserver(updateActiveSection);
+    document.body.childNodes.forEach(node => {
+        if (node.nodeType === 1) { // Check if it's an element node
+            observer.observe(node);
+        }
+    });
+    
+    // Backup timeout for edge cases
+    setTimeout(updateActiveSection, 1000);
 }); 

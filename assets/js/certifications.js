@@ -7,6 +7,65 @@ document.addEventListener('DOMContentLoaded', function() {
     const certDescription = document.getElementById('cert-description');
     const certLink = document.getElementById('cert-link');
     const closeBtn = certModal.querySelector('.close-modal');
+    const modalContent = certModal.querySelector('.modal-content');
+
+    // Handle scrolling within modal content
+    modalContent.addEventListener('wheel', function(e) {
+        const scrollTop = this.scrollTop;
+        const scrollHeight = this.scrollHeight;
+        const height = this.clientHeight;
+        const delta = e.deltaY;
+        const isScrollingUp = delta < 0;
+        const isScrollingDown = delta > 0;
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
+
+        // Always prevent default and stop propagation
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Only update scroll if we're not at the boundaries or scrolling in the available direction
+        if (!(isAtTop && isScrollingUp) && !(isAtBottom && isScrollingDown)) {
+            this.scrollTop += delta;
+        }
+    }, { passive: false });
+
+    // Prevent any scrolling on the modal backdrop
+    certModal.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, { passive: false });
+
+    // Touch event handling for mobile
+    let touchStart = 0;
+    modalContent.addEventListener('touchstart', function(e) {
+        touchStart = e.touches[0].clientY;
+    }, { passive: true });
+
+    modalContent.addEventListener('touchmove', function(e) {
+        const touchY = e.touches[0].clientY;
+        const scrollTop = this.scrollTop;
+        const scrollHeight = this.scrollHeight;
+        const height = this.clientHeight;
+        const isScrollingUp = touchY > touchStart;
+        const isScrollingDown = touchY < touchStart;
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
+
+        // Always stop propagation
+        e.stopPropagation();
+
+        // Prevent scrolling at boundaries
+        if ((isAtTop && isScrollingUp) || (isAtBottom && isScrollingDown)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Prevent any touch scrolling on modal backdrop
+    certModal.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, { passive: false });
 
     // Certification data
     const certifications = {

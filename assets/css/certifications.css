@@ -1,28 +1,9 @@
 #certifications {
     padding: 2em 0;
-    background: rgba(74, 202, 168, 0.05);  /* Very subtle green tint */
+    /* background: rgba(202, 74, 74, 0.5);  /* Very subtle green tint */
     position: relative;
 }
 
-#certifications::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(74, 202, 168, 0.2), transparent);
-}
-
-#certifications::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(74, 202, 168, 0.2), transparent);
-}
 
 #certifications .work-item {
     margin-bottom: 2em;
@@ -85,7 +66,21 @@
 
 /* Modal specific styles */
 #certification-modal {
-    overflow-y: hidden;
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#certification-modal.show {
+    display: block !important;
+    opacity: 1;
 }
 
 #certification-modal .modal-content {
@@ -190,13 +185,9 @@
     transform: translateY(-1px);
 }
 
-#certification-modal .cert-details {
-    margin-top: 1.5em;
-}
-
 #certification-modal .button {
     display: inline-block;
-    margin: 1em 0 2em;
+    margin-top: 2em;
     padding: 0 1.5em;
     background: #4acaa8;
     color: #fff !important;
@@ -224,15 +215,6 @@
 #certification-modal .button:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(74, 202, 168, 0.1);
-}
-
-#certification-modal .credential-id {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 2em;
-    padding-top: 1em;
-    border-top: 1px solid rgba(74, 202, 168, 0.1);
-    font-family: monospace;
 }
 
 /* Responsive adjustments */

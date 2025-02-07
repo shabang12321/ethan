@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Get modal elements
     const certModal = document.getElementById('certification-modal');
     const certTitle = document.getElementById('cert-title');
     const certDate = document.getElementById('cert-date');
-    const certId = document.getElementById('cert-id');
     const certSkills = document.getElementById('cert-skills');
     const certDescription = document.getElementById('cert-description');
     const certLink = document.getElementById('cert-link');
@@ -71,8 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const certifications = {
         'degree': {
             title: 'Bachelor of Engineering (Honours) in Mechatronic Engineering',
-            date: 'Expected June 2025',
-            credentialId: 'UTS-2024-ME-HONS',
+            date: 'Expected December 2024',
             skills: [
                 'Robotics & Automation',
                 'Mechanical Design',
@@ -82,12 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Systems Engineering'
             ],
             description: 'A comprehensive engineering degree focusing on the integration of mechanical, electrical, and software systems. The program emphasizes hands-on experience with modern robotics, automation systems, and industry-standard tools while developing strong problem-solving and analytical skills.',
-            link: null // No credential link available
+            link: null
         },
         'ford': {
             title: 'Digital Advanced Program',
-            date: 'December 2024',
-            credentialId: 'FORD-DAP-2023-091',
+            date: 'September 2023',
             skills: [
                 'Digital Innovation',
                 'Automotive Technology',
@@ -100,8 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'ycombinator': {
             title: 'Startup Work Experience Program',
-            date: 'December 2024',
-            credentialId: 'YC-SWE-2023-082',
+            date: 'August 2023',
             skills: [
                 'Startup Operations',
                 'Product Development',
@@ -110,12 +107,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Innovation'
             ],
             description: 'A comprehensive program providing hands-on experience in startup operations and development. Learned key aspects of building and scaling technology startups, including product development, market analysis, and business strategy through Y Combinator\'s proven methodology.',
-            link: null // No credential link available
+            link: null
         },
         'deloitte': {
             title: 'Technology Consulting Virtual Experience Program',
-            date: 'August 2023',
-            credentialId: 'DEL-TCP-2023-071',
+            date: 'July 2023',
             skills: [
                 'Technology Consulting',
                 'Cloud Computing',
@@ -128,18 +124,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Open modal with certification details
-    document.querySelectorAll('.certification-link').forEach(link => {
+    // Add click event listeners to certification links
+    const certLinks = document.querySelectorAll('.certification-link');
+    console.log('Found certification links:', certLinks.length); // Debug log
+
+    certLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const selectedCertId = this.dataset.cert;
-            const cert = certifications[selectedCertId];
+            console.log('Certification clicked'); // Debug log
             
+            const certId = this.dataset.cert;
+            console.log('Certification ID:', certId); // Debug log
+            
+            const cert = certifications[certId];
+            
+            // Update modal content
             certTitle.textContent = cert.title;
             certDate.textContent = cert.date;
             certDescription.textContent = cert.description;
             
-            // Clear and populate skills
+            // Update skills
             certSkills.innerHTML = '';
             cert.skills.forEach(skill => {
                 const li = document.createElement('li');
@@ -147,37 +151,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 certSkills.appendChild(li);
             });
             
-            // Only show credential button if link exists
+            // Handle credential button
             if (cert.link) {
                 certLink.href = cert.link;
                 certLink.style.display = 'inline-block';
-                certId.style.display = 'block'; // Show the credential ID element
-                certId.textContent = cert.credentialId;
             } else {
                 certLink.style.display = 'none';
-                certId.style.display = 'none'; // Hide the credential ID element
             }
             
+            // Show modal
             certModal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
     });
-    
-    // Close modal
+
+    // Close modal functionality
     function closeModal() {
         certModal.classList.remove('show');
         document.body.style.overflow = '';
     }
-    
+
     closeBtn.addEventListener('click', closeModal);
-    
+
     certModal.addEventListener('click', function(e) {
         if (e.target === certModal) {
             closeModal();
         }
     });
-    
-    // Close on escape key
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && certModal.classList.contains('show')) {
             closeModal();

@@ -11,8 +11,10 @@
 	<link rel="stylesheet" href="assets/css/modal.css" />
 	<link rel="stylesheet" href="assets/css/animations.css" />
 	<link rel="stylesheet" href="assets/css/certifications.css" />
+	<link rel="stylesheet" href="assets/css/gradient-animation.css" />
 	<link rel="icon" href="images/favicon.png" type="image/png">
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body class="is-preload">
@@ -71,9 +73,11 @@
 					</ul>
 				</div>
 				<div class="right-content">
-					<div class="visitor-counter">
-						<i class="fas fa-user-friends"></i>
-						<span id="visitor-count">Loading...</span>
+					<div class="visitor-counter animated-gradient-text">
+						<div class="text-content">
+							<i class="fas fa-user-friends"></i>
+							<span>Visitor #<span id="visitor-count">Counting...</span></span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -277,6 +281,7 @@
 	<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/stats.js"></script>
+	<script src="assets/js/count-animation.js"></script>
 	<script src="assets/js/jquery.poptrox.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>

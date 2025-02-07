@@ -1,0 +1,90 @@
+.animated-gradient-text {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    max-width: fit-content;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.25rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.5s ease-out;
+    overflow: hidden;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 300% 100%;
+    animation: gradient linear infinite;
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.text-content {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient linear infinite;
+}
+
+/* Custom styles for visitor counter */
+.visitor-counter {
+    padding: 8px 16px;
+    cursor: default;
+    user-select: none;
+}
+
+.visitor-counter .text-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.visitor-counter i {
+    background: linear-gradient(to right, #4acaa8, #45b598, #4acaa8, #3d9f84, #4acaa8);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 4s linear infinite;
+}
+
+.visitor-counter .text-content > span {
+    background: linear-gradient(to right, #4acaa8, #45b598, #4acaa8, #3d9f84, #4acaa8);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 4s linear infinite;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.visitor-counter #visitor-count {
+    margin-left: 0;
+    display: inline;
+} 

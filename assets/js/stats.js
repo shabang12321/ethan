@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Visitor Counter
         const visitorCountRef = db.collection('stats').doc('visitors');
+        const visitorCountElement = document.getElementById('visitor-count');
         console.log('Attempting to access visitor count document');
         
         // Create the document if it doesn't exist
@@ -55,10 +56,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         }).then((doc) => {
             const count = doc.data()?.count;
             console.log('New visitor count:', count);
-            document.getElementById('visitor-count').textContent = `Visitor #${count}`;
+            // Animate the visitor count from 0 to the current value
+            visitorCountElement.textContent = '0'; // Set initial value
+            animateNumber(visitorCountElement, 0, count, 2000, ",");
         }).catch((error) => {
             console.error("Error in visitor counter flow:", error);
-            document.getElementById('visitor-count').textContent = 'Error loading count';
+            visitorCountElement.textContent = 'Error loading count';
         });
         
         // Like System
@@ -78,7 +81,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return doc;
             }).then((doc) => {
                 console.log('Likes for', projectId, ':', doc.data()?.likes);
-                countSpan.textContent = doc.data()?.likes || 0;
+                const likes = doc.data()?.likes || 0;
+                // Animate the likes count
+                countSpan.textContent = '0';
+                animateNumber(countSpan, 0, likes, 1500, "");
             }).catch((error) => {
                 console.error("Error getting likes for", projectId, ":", error);
             });
@@ -96,7 +102,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         
                         const updatedDoc = await projectRef.get();
                         console.log('Updated likes for', projectId, ':', updatedDoc.data().likes);
-                        countSpan.textContent = updatedDoc.data().likes;
+                        // Animate to the new likes count
+                        const currentLikes = parseInt(countSpan.textContent) || 0;
+                        animateNumber(countSpan, currentLikes, updatedDoc.data().likes, 1000, "");
                         button.classList.add('liked');
                         localStorage.setItem(`liked-${projectId}`, 'true');
                     } catch (error) {

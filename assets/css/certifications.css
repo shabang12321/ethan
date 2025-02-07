@@ -16,15 +16,15 @@
     transition: all 0.3s ease;
     padding: 1.5em;
     display: block;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(74, 202, 168, 0.1); /* Light green background */
     border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 15px rgba(74, 202, 168, 0.05);
 }
 
 #certifications .work-item a:hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(74, 202, 168, 0.15); /* Slightly darker green on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(74, 202, 168, 0.15);
+    box-shadow: 0 4px 20px rgba(74, 202, 168, 0.2);
 }
 
 #certifications .work-item h3 {
@@ -35,22 +35,23 @@
 
 #certifications .work-item h3 i {
     margin-right: 12px;
-    color: #4acaa8;
-    background: rgba(74, 202, 168, 0.15);
+    color: #4acaa8; /* Keep icon color green */
+    background: rgba(0, 0, 0, 0.8); /* Dark background */
     padding: 8px;
     border-radius: 8px;
     min-width: 32px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     animation: gentle-float 3s ease-in-out infinite;
 }
 
 #certifications .work-item:hover h3 i {
     animation: none;
     transform: translateY(-2px);
-    background: rgba(74, 202, 168, 0.2);
-    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #000; /* Icon becomes black */
+    background: rgba(74, 202, 168, 0.8); /* Background becomes more solid green */
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
 #certifications .work-item p {

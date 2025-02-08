@@ -1,71 +1,68 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get modal elements
     const certModal = document.getElementById('certification-modal');
+    const modalContent = certModal.querySelector('.modal-content');
     const certTitle = document.getElementById('cert-title');
-    const certDate = document.getElementById('cert-date');
-    const certSkills = document.getElementById('cert-skills');
     const certDescription = document.getElementById('cert-description');
     const certLink = document.getElementById('cert-link');
     const closeBtn = certModal.querySelector('.close-modal');
-    const modalContent = certModal.querySelector('.modal-content');
+
+    // Reset modal state
+    function resetModal() {
+        modalContent.scrollTop = 0;
+        certDescription.scrollTop = 0;
+        certTitle.innerHTML = '';
+        certDescription.innerHTML = '';
+        certLink.style.display = 'none';
+    }
+
+    // Close modal functionality
+    function closeModal() {
+        resetModal();
+        certModal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
 
     // Handle scrolling within modal content
-    modalContent.addEventListener('wheel', function(e) {
-        const scrollTop = this.scrollTop;
-        const scrollHeight = this.scrollHeight;
-        const height = this.clientHeight;
+    function handleScroll(e, element) {
+        const scrollTop = element.scrollTop;
+        const scrollHeight = element.scrollHeight;
+        const height = element.clientHeight;
         const delta = e.deltaY;
         const isScrollingUp = delta < 0;
         const isScrollingDown = delta > 0;
         const isAtTop = scrollTop === 0;
         const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
 
-        // Always prevent default and stop propagation
         e.preventDefault();
         e.stopPropagation();
 
-        // Only update scroll if we're not at the boundaries or scrolling in the available direction
         if (!(isAtTop && isScrollingUp) && !(isAtBottom && isScrollingDown)) {
-            this.scrollTop += delta;
+            element.scrollTop += delta;
         }
-    }, { passive: false });
+    }
 
-    // Prevent any scrolling on the modal backdrop
-    certModal.addEventListener('wheel', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }, { passive: false });
+    modalContent.addEventListener('wheel', e => handleScroll(e, modalContent), { passive: false });
+    certModal.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 
     // Touch event handling for mobile
     let touchStart = 0;
-    modalContent.addEventListener('touchstart', function(e) {
-        touchStart = e.touches[0].clientY;
-    }, { passive: true });
+    modalContent.addEventListener('touchstart', e => touchStart = e.touches[0].clientY, { passive: true });
 
     modalContent.addEventListener('touchmove', function(e) {
         const touchY = e.touches[0].clientY;
-        const scrollTop = this.scrollTop;
-        const scrollHeight = this.scrollHeight;
-        const height = this.clientHeight;
         const isScrollingUp = touchY > touchStart;
         const isScrollingDown = touchY < touchStart;
-        const isAtTop = scrollTop === 0;
-        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
+        const isAtTop = this.scrollTop === 0;
+        const isAtBottom = Math.abs(this.scrollTop + this.clientHeight - this.scrollHeight) < 1;
 
-        // Always stop propagation
         e.stopPropagation();
-
-        // Prevent scrolling at boundaries
         if ((isAtTop && isScrollingUp) || (isAtBottom && isScrollingDown)) {
             e.preventDefault();
         }
     }, { passive: false });
 
-    // Prevent any touch scrolling on modal backdrop
-    certModal.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }, { passive: false });
+    certModal.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
 
     // Certification data
     const certifications = {
@@ -182,9 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'degree': {
             title: 'Bachelor of Engineering (Honours) in Mechatronic Engineering',
-            organization: 'University of Technology Sydney',
+            organization: 'Macquarie University',
             period: '2021 - Present',
-            date: 'Expected completion: December 2024',
+            date: 'Expected completion: June 2025',
             overview: 'A comprehensive engineering degree integrating mechanical, electrical, and software systems with emphasis on practical application and industry relevance.',
             tasks: [
                 {
@@ -206,47 +203,48 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             skills: [
                 'Robotics & Automation',
-                'Mechanical Design',
+                'Control Systems',
                 'Electronics',
                 'Programming',
                 'Project Management',
                 'Systems Engineering',
                 'CAD/CAM',
-                'Control Systems'
+                'Mechanical Design'
             ],
             link: null
         }
     };
 
     // Add click event listeners to certification links
-    const certLinks = document.querySelectorAll('.certification-link');
-
-    certLinks.forEach(link => {
+    document.querySelectorAll('.certification-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const certId = this.dataset.cert;
-            const cert = certifications[certId];
+            const cert = certifications[this.dataset.cert];
             
-            // Update modal content with enhanced structure
+            resetModal();
+            
             certTitle.innerHTML = `
                 <h3>${cert.title}</h3>
                 <h4>${cert.organization}</h4>
             `;
             
-            // Create detailed content
-            const content = `
+            certDescription.innerHTML = `
                 <div class="cert-header">
                     <div class="cert-period">
                         <strong>Period:</strong> ${cert.period}
-                    </div>
-                    <div class="cert-issue-date">
-                        <strong>Status:</strong> ${cert.date}
                     </div>
                 </div>
 
                 <div class="cert-overview">
                     <h4>Overview</h4>
                     <p>${cert.overview}</p>
+                </div>
+
+                <div class="cert-skills">
+                    <h4>Skills Developed</h4>
+                    <div class="skills-grid">
+                        ${cert.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    </div>
                 </div>
 
                 <div class="cert-tasks">
@@ -260,50 +258,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         `).join('')}
                     </ul>
                 </div>
-
-                <div class="cert-skills">
-                    <h4>Skills Developed</h4>
-                    <div class="skills-grid">
-                        ${cert.skills.map(skill => `
-                            <span class="skill-tag">${skill}</span>
-                        `).join('')}
-                    </div>
-                </div>
             `;
             
-            certDescription.innerHTML = content;
-            
-            // Handle credential button
             if (cert.link) {
                 certLink.href = cert.link;
                 certLink.style.display = 'inline-block';
-            } else {
-                certLink.style.display = 'none';
             }
             
-            // Show modal
             certModal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
     });
 
-    // Close modal functionality
-    function closeModal() {
-        certModal.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-
+    // Event listeners for closing modal
     closeBtn.addEventListener('click', closeModal);
-
-    certModal.addEventListener('click', function(e) {
-        if (e.target === certModal) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && certModal.classList.contains('show')) {
-            closeModal();
-        }
-    });
+    certModal.addEventListener('click', e => e.target === certModal && closeModal());
+    document.addEventListener('keydown', e => e.key === 'Escape' && certModal.classList.contains('show') && closeModal());
 });

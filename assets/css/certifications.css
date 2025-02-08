@@ -115,7 +115,7 @@
 /* Title Styling */
 #certification-modal h3 {
     color: #2c3e50;
-    font-size: 1.8em;
+    font-size: 1.4em;
     margin: 0 0 0.3em 0;
     line-height: 1.3;
     font-weight: 600;
@@ -123,30 +123,54 @@
 
 #certification-modal h4 {
     color: #4acaa8;
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0 0 1.5em 0;
     font-weight: 500;
 }
 
 /* Header Section */
 .cert-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2em;
-    padding: 1em;
-    background: rgba(74, 202, 168, 0.05);
+    background-color: #f8f9fa;
+    padding: 1rem;
     border-radius: 8px;
-    border: 1px solid rgba(74, 202, 168, 0.1);
+    margin-bottom: 1.5rem;
 }
 
-.cert-period, .cert-issue-date {
-    color: #5a6c7d;
+.cert-period {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.cert-skills-header {
+    margin-left: 2em;
+    flex-grow: 1;
+}
+
+.cert-skills-header h4 {
+    margin: 0 0 0.5em 0 !important;
+    color: #2c3e50 !important;
+    font-size: 0.9em !important;
+}
+
+.cert-header .skills-grid {
+    margin: 0;
+    gap: 0.5em;
+}
+
+.cert-header .skill-tag {
+    font-size: 0.8em;
+    padding: 0.3em 0.8em;
 }
 
 /* Overview Section */
 .cert-overview {
-    margin-bottom: 2em;
+    margin-bottom: 1.5rem;
+}
+
+.cert-overview h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .cert-overview p {
@@ -155,9 +179,26 @@
     margin: 0.5em 0;
 }
 
+/* Skills Section */
+.cert-skills {
+    margin-bottom: 1.5rem;
+}
+
+.cert-skills h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
 /* Tasks Section */
 .cert-tasks {
-    margin-bottom: 2em;
+    margin-bottom: 1.5rem;
+}
+
+.cert-tasks h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .cert-tasks ul {
@@ -191,24 +232,19 @@
     line-height: 1.5;
 }
 
-/* Skills Section */
-.cert-skills {
-    margin-top: 2em;
-}
-
+/* Skills tags */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8em;
-    margin-top: 1em;
+    gap: 0.5rem;
 }
 
 .skill-tag {
     background: #f8f9fa;
     color: #2c3e50;
-    padding: 0.5em 1em;
+    padding: 0.4em 0.8em;
     border-radius: 20px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     border: 1px solid rgba(74, 202, 168, 0.2);
     transition: all 0.3s ease;
 }
@@ -272,24 +308,28 @@
     }
 
     #certification-modal h3 {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
 
     #certification-modal h4 {
-        font-size: 1.1em;
+        font-size: 0.9em;
     }
 
     .cert-header {
         flex-direction: column;
-        gap: 0.5em;
+        gap: 1em;
+    }
+
+    .cert-skills-header {
+        margin-left: 0;
     }
 
     .skills-grid {
-        gap: 0.5em;
+        gap: 0.4em;
     }
 
     .skill-tag {
-        font-size: 0.85em;
-        padding: 0.4em 0.8em;
+        font-size: 0.8em;
+        padding: 0.3em 0.7em;
     }
 }

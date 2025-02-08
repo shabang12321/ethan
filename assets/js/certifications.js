@@ -69,8 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'deloitte': {
             title: 'Technology Consulting Virtual Experience Program',
             organization: 'Deloitte Australia',
-            period: 'July 2023 - August 2023',
-            date: 'Certificate issued: August 1, 2023',
+            date: 'Aug 2023',
             overview: 'An intensive technology consulting program focusing on practical implementation of business solutions, data analysis, and cyber security measures.',
             tasks: [
                 {
@@ -108,8 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'ycombinator': {
             title: 'Working at a Startup Program',
             organization: 'Y Combinator',
-            period: 'August 2023',
-            date: 'Certificate issued: August 2023',
+            date: 'Dec 2024',
             overview: 'An immersive full-stack program mirroring the dynamic environment of a fast-growing startup, focusing on iterative feature development and data-driven analysis.',
             tasks: [
                 {
@@ -144,8 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'ford': {
             title: 'Digital Advanced Program',
             organization: 'Ford Motor Company',
-            period: 'September 2023',
-            date: 'Certificate issued: September 2023',
+            date: 'Dec 2024',
             overview: 'A comprehensive technical program focused on modern software development practices and system architecture in the automotive industry.',
             tasks: [
                 {
@@ -178,11 +175,10 @@ document.addEventListener('DOMContentLoaded', function() {
             link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/RwKkimvLMkHbEHKAA/NijmH479TnRZ73dLB_RwKkimvLMkHbEHKAA_RxreKoYBeNaWc6vkE_1735573520207_completion_certificate.pdf'
         },
         'degree': {
-            title: 'Bachelor of Engineering (Honours) in Mechatronic Engineering',
+            title: 'Bachelor of Mechatronic Engineering (Honours)',
             organization: 'Macquarie University',
-            period: '2021 - Present',
-            date: 'Expected completion: June 2025',
-            overview: 'A comprehensive engineering degree integrating mechanical, electrical, and software systems with emphasis on practical application and industry relevance.',
+            date: '2021 - 2025',
+            overview: 'A comprehensive engineering degree integrating software, electrical, and mechanical systems with emphasis on practical application and industry relevance.',
             tasks: [
                 {
                     title: 'Technical Foundation',
@@ -226,29 +222,24 @@ document.addEventListener('DOMContentLoaded', function() {
             certTitle.innerHTML = `
                 <h3>${cert.title}</h3>
                 <h4>${cert.organization}</h4>
+                <p class="cert-date">${cert.date}</p>
             `;
             
             certDescription.innerHTML = `
-                <div class="cert-header">
-                    <div class="cert-period">
-                        <strong>Period:</strong> ${cert.period}
-                    </div>
-                </div>
-
-                <div class="cert-overview">
-                    <h4>Overview</h4>
+                <div class="cert-overview" style="margin-bottom: 2em;">
+                    <h4><i class="fas fa-info-circle"></i> Overview</h4>
                     <p>${cert.overview}</p>
                 </div>
 
-                <div class="cert-skills">
-                    <h4>Skills Developed</h4>
+                <div class="cert-skills" style="margin-bottom: 2em;">
+                    <h4><i class="fas fa-tools"></i> Skills Developed</h4>
                     <div class="skills-grid">
                         ${cert.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
                     </div>
                 </div>
 
                 <div class="cert-tasks">
-                    <h4>Key Responsibilities & Achievements</h4>
+                    <h4><i class="fas fa-tasks"></i> Key Responsibilities & Achievements</h4>
                     <ul>
                         ${cert.tasks.map(task => `
                             <li>
@@ -262,7 +253,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (cert.link) {
                 certLink.href = cert.link;
+                certLink.innerHTML = 'View Credential <i class="fas fa-external-link-alt"></i>';
                 certLink.style.display = 'inline-block';
+                certLink.target = '_blank';
+                certLink.rel = 'noopener noreferrer';
+            } else {
+                certLink.style.display = 'none';
             }
             
             certModal.classList.add('show');

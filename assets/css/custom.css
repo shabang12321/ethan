@@ -101,6 +101,7 @@
     line-height: 1.6;
     word-wrap: break-word;
     hyphens: none;
+    color: #ffffff;
 }
 
 #header h1 br {
@@ -118,6 +119,7 @@
 #header h1 span {
     display: block;
     margin-bottom: 0.5em;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Update magnetic lines container */
@@ -150,6 +152,17 @@
     margin-left: 35%;
     padding: 4em 2em 2em 2em;
     width: 65%;
+    color: #333;  /* Base text color for main content */
+}
+
+#main h2 {
+    color: #222;
+    font-weight: 600;
+}
+
+#main p {
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Responsive adjustments */
@@ -262,7 +275,7 @@
 }
 
 .header-footer .copyright {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.8em;
     list-style: none;
     margin: 0;
@@ -532,6 +545,8 @@
 .work-item h3 {
     display: flex;
     align-items: center;
+    color: #222;
+    font-weight: 600;
 }
 
 /* Stop animation and change style on hover */
@@ -604,7 +619,7 @@
 .like-button {
     background: none;
     border: none;
-    color: #666;
+    color: #444;
     cursor: pointer;
     padding: 5px 10px;
     display: flex;
@@ -631,7 +646,7 @@
 
 /* Visitor counter styling */
 .visitor-counter {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9em;
     display: flex;
     align-items: center;
@@ -641,4 +656,63 @@
 
 .visitor-counter i {
     color: #4acaa8;
+}
+
+/* Main content text colors */
+#main h2 {
+    color: #222;
+    font-weight: 600;
+}
+
+#main p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.work-item h3 {
+    color: #222;
+    font-weight: 600;
+}
+
+.work-item p {
+    color: #333;
+    line-height: 1.6;
+}
+
+#projects .work-item h3 {
+    color: #222;
+    margin: 1em 0 0.5em 0;
+}
+
+#projects .work-item p {
+    color: #333;
+}
+
+#contact h2 {
+    color: #222;
+}
+
+#contact p {
+    color: #333;
+}
+
+.labeled-icons li {
+    color: #333;
+}
+
+.labeled-icons h3 {
+    color: #222;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+textarea {
+    color: #333 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: #666 !important;
 }

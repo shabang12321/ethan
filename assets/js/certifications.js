@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.certification-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             const cert = certifications[this.dataset.cert];
             
             resetModal();
@@ -263,6 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             certModal.classList.add('show');
             document.body.style.overflow = 'hidden';
+            
+            // Prevent URL change
+            return false;
         });
     });
 

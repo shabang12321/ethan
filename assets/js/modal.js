@@ -1,10 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
     const modalImage = document.getElementById('modal-image');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalContent = modal.querySelector('.modal-content');
+    const closeBtn = modal.querySelector('.close-modal');
+    
+    // Reset modal state
+    function resetModal() {
+        modalContent.scrollTop = 0;
+        modalTitle.textContent = '';
+        modalDescription.textContent = '';
+        modalImage.src = '';
+    }
+
+    // Close modal functionality
+    function closeModal() {
+        resetModal();
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    // Handle scrolling within modal content
+    function handleScroll(e, element) {
+        const scrollTop = element.scrollTop;
+        const scrollHeight = element.scrollHeight;
+        const height = element.clientHeight;
+        const delta = e.deltaY;
+        const isScrollingUp = delta < 0;
+        const isScrollingDown = delta > 0;
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!(isAtTop && isScrollingUp) && !(isAtBottom && isScrollingDown)) {
+            element.scrollTop += delta;
+        }
+    }
+
+    modalContent.addEventListener('wheel', e => handleScroll(e, modalContent), { passive: false });
+    modal.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+
+    // Touch event handling for mobile
+    let touchStart = 0;
+    modalContent.addEventListener('touchstart', e => touchStart = e.touches[0].clientY, { passive: true });
+
+    modalContent.addEventListener('touchmove', function(e) {
+        const touchY = e.touches[0].clientY;
+        const isScrollingUp = touchY > touchStart;
+        const isScrollingDown = touchY < touchStart;
+        const isAtTop = this.scrollTop === 0;
+        const isAtBottom = Math.abs(this.scrollTop + this.clientHeight - this.scrollHeight) < 1;
+
+        e.stopPropagation();
+        if ((isAtTop && isScrollingUp) || (isAtBottom && isScrollingDown)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    modal.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
     
     // Project data
     const projects = {
@@ -27,74 +83,18 @@ document.addEventListener('DOMContentLoaded', function() {
             image: 'images/fulls/04.jpg',
             title: 'Business Digital Transformation',
             description: 'Implemented cloud-based systems for quote & invoice processes at E&E Building Services. Streamlined business operations through digital transformation, resulting in improved workflow efficiency and customer satisfaction.'
-        },
-        // Add other projects here
+        }
     };
-    
-    // Handle scrolling within modal content
-    modalContent.addEventListener('wheel', function(e) {
-        const scrollTop = this.scrollTop;
-        const scrollHeight = this.scrollHeight;
-        const height = this.clientHeight;
-        const delta = e.deltaY;
-        const isScrollingUp = delta < 0;
-        const isScrollingDown = delta > 0;
-        const isAtTop = scrollTop === 0;
-        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
-
-        // Always prevent default and stop propagation
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Only update scroll if we're not at the boundaries or scrolling in the available direction
-        if (!(isAtTop && isScrollingUp) && !(isAtBottom && isScrollingDown)) {
-            this.scrollTop += delta;
-        }
-    }, { passive: false });
-
-    // Prevent any scrolling on the modal backdrop
-    modal.addEventListener('wheel', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }, { passive: false });
-
-    // Touch event handling for mobile
-    let touchStart = 0;
-    modalContent.addEventListener('touchstart', function(e) {
-        touchStart = e.touches[0].clientY;
-    }, { passive: true });
-
-    modalContent.addEventListener('touchmove', function(e) {
-        const touchY = e.touches[0].clientY;
-        const scrollTop = this.scrollTop;
-        const scrollHeight = this.scrollHeight;
-        const height = this.clientHeight;
-        const isScrollingUp = touchY > touchStart;
-        const isScrollingDown = touchY < touchStart;
-        const isAtTop = scrollTop === 0;
-        const isAtBottom = Math.abs(scrollTop + height - scrollHeight) < 1;
-
-        // Always stop propagation
-        e.stopPropagation();
-
-        // Prevent scrolling at boundaries
-        if ((isAtTop && isScrollingUp) || (isAtBottom && isScrollingDown)) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    // Prevent any touch scrolling on modal backdrop
-    modal.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }, { passive: false });
     
     // Open modal
     document.querySelectorAll('.project-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             const projectId = this.dataset.project;
             const project = projects[projectId];
+            
+            resetModal();
             
             modalImage.src = project.image;
             modalTitle.textContent = project.title;
@@ -102,27 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
+            
+            // Prevent URL change
+            return false;
         });
     });
     
     // Close modal
-    function closeModal() {
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
     closeBtn.addEventListener('click', closeModal);
-    
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
-        }
-    });
+    modal.addEventListener('click', e => e.target === modal && closeModal());
+    document.addEventListener('keydown', e => e.key === 'Escape' && modal.classList.contains('show') && closeModal());
 }); 

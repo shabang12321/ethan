@@ -716,3 +716,44 @@ input[type="email"]::placeholder,
 textarea::placeholder {
     color: #666 !important;
 }
+
+/* Skills section tags */
+#skills .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8em;
+}
+
+#skills .skill-tag {
+    background: #f8f9fa;
+    color: #333;
+    padding: 0.35em 0.8em;
+    border-radius: 16px;
+    font-size: 0.85em;
+    border: 1px solid rgba(74, 202, 168, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(74, 202, 168, 0.1);
+    cursor: default;
+    line-height: 1.4;
+}
+
+#skills .skill-tag:hover {
+    background: rgba(74, 202, 168, 0.1);
+    border-color: #4acaa8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #222;
+}
+
+/* Responsive adjustments for skills tags */
+@media screen and (max-width: 736px) {
+    #skills .skills-grid {
+        gap: 0.4rem;
+    }
+    
+    #skills .skill-tag {
+        font-size: 0.8em;
+        padding: 0.3em 0.7em;
+    }
+}

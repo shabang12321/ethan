@@ -228,6 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     details: 'Collaborated on real startup projects, applying entrepreneurial thinking to solve business, technical and social challenges.'
                 },
                 {
+                    title: 'Pitch Development',
+                    details: 'Developed and practiced startup pitches, presenting to panels of experienced investors and industry judges for feedback and refinement.'
+                },
+                {
                     title: 'Skill Development',
                     details: 'Enhanced understanding of startup methodologies, venture capital, and modern business practices.'
                 }
@@ -240,7 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Networking',
                 'Innovation',
                 'Problem Solving',
-                'Leadership'
+                'Leadership',
+                'Pitch Presentation'
             ],
             link: null
         },

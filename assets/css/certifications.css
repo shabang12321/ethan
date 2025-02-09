@@ -1,15 +1,15 @@
-#experience {
+#milestones {
     padding: 2em 0;
     /* background: rgba(202, 74, 74, 0.5);  /* Very subtle green tint */
     position: relative;
 }
 
 
-#experience .work-item {
+#milestones .work-item {
     margin-bottom: 2em;
 }
 
-#experience .work-item a {
+#milestones .work-item a {
     text-decoration: none;
     border-bottom: none;
     color: inherit;
@@ -21,19 +21,19 @@
     box-shadow: 0 2px 15px rgba(74, 202, 168, 0.05);
 }
 
-#experience .work-item a:hover {
+#milestones .work-item a:hover {
     background: rgba(74, 202, 168, 0.15); /* Slightly darker green on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(74, 202, 168, 0.2);
 }
 
-#experience .work-item h3 {
+#milestones .work-item h3 {
     display: flex;
     align-items: center;
     margin-bottom: 0.5em;
 }
 
-#experience .work-item h3 i {
+#milestones .work-item h3 i {
     margin-right: 12px;
     color: #4acaa8; /* Keep icon color green */
     background: rgba(0, 0, 0, 0.8); /* Dark background */
@@ -46,7 +46,7 @@
     animation: gentle-float 3s ease-in-out infinite;
 }
 
-#experience .work-item:hover h3 i {
+#milestones .work-item:hover h3 i {
     animation: none;
     transform: translateY(-2px);
     color: #000; /* Icon becomes black */
@@ -54,18 +54,20 @@
     box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
-#experience .work-item p {
-    color: #444;
+#milestones .work-item p {
+    color: #222;
     margin-bottom: 0;
+    font-size: 0.95em;  /* Reduced from 1.1em to 0.95em */
+    font-weight: 500;   /* Reduced from 600 to 500 */
 }
 
 /* Stagger animation for icons */
-#experience .work-item:nth-child(1) h3 i { animation-delay: 0s; }
-#experience .work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
-#experience .work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
-#experience .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
-#experience .work-item:nth-child(5) h3 i { animation-delay: 3s; }
-#experience .work-item:nth-child(6) h3 i { animation-delay: 3.75s; }
+#milestones .work-item:nth-child(1) h3 i { animation-delay: 0s; }
+#milestones .work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
+#milestones .work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
+#milestones .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
+#milestones .work-item:nth-child(5) h3 i { animation-delay: 3s; }
+#milestones .work-item:nth-child(6) h3 i { animation-delay: 3.75s; }
 
 /* Modal specific styles */
 #certification-modal {
@@ -443,5 +445,9 @@
         height: 36px;
         font-size: 1.4em;
         margin: -1em -1em 0.5em 0.5em;
+    }
+
+    #milestones .work-item p {
+        font-size: 0.9em;  /* Slightly smaller on mobile */
     }
 }

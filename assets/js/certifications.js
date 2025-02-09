@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Certification data
     const certifications = {
         'deloitte': {
-            title: 'Technology Consulting Virtual Experience Program',
+            title: 'Technology Consulting Program',
             organization: 'Deloitte Australia',
             date: 'Aug 2023',
             overview: 'An intensive technology consulting program focusing on practical implementation of business solutions, data analysis, and cyber security measures.',

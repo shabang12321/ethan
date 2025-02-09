@@ -89,13 +89,16 @@
     border-radius: 12px;
     padding: 2.5em;
     max-width: 800px;
+    width: calc(100% - 5em);  /* Account for padding */
     max-height: 85vh;
     overflow-y: auto;
+    overflow-x: hidden;  /* Hide horizontal scroll */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin: 2.5vh auto;
     position: relative;
     scrollbar-width: thin;
     scrollbar-color: rgba(74, 202, 168, 0.5) transparent;
+    box-sizing: border-box;  /* Include padding in width calculation */
 }
 
 #certification-modal .modal-content::-webkit-scrollbar {
@@ -370,9 +373,10 @@
 
 /* Close Button */
 #certification-modal .close-modal {
-    position: absolute;
-    right: 1.5em;
-    top: 1.5em;
+    position: sticky;
+    top: 0.001em;
+    float: right;
+    right: 0.001em;
     width: 32px;
     height: 32px;
     background: rgba(0, 0, 0, 0.1);
@@ -383,6 +387,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #2c3e50;
+    z-index: 10000;
+    margin: -1.5em -1.5em 1em 1em;
 }
 
 #certification-modal .close-modal:hover {
@@ -395,6 +401,7 @@
     #certification-modal .modal-content {
         padding: 1.5em;
         margin: 1em;
+        width: calc(100% - 2em);
         max-width: calc(100% - 2em);
     }
 
@@ -422,5 +429,9 @@
     .skill-tag {
         font-size: 0.8em;
         padding: 0.3em 0.7em;
+    }
+
+    #certification-modal .close-modal {
+        margin: -1em -1em 0.5em 0.5em;
     }
 }

@@ -1,15 +1,15 @@
-#certifications {
+#experience {
     padding: 2em 0;
     /* background: rgba(202, 74, 74, 0.5);  /* Very subtle green tint */
     position: relative;
 }
 
 
-#certifications .work-item {
+#experience .work-item {
     margin-bottom: 2em;
 }
 
-#certifications .work-item a {
+#experience .work-item a {
     text-decoration: none;
     border-bottom: none;
     color: inherit;
@@ -21,19 +21,19 @@
     box-shadow: 0 2px 15px rgba(74, 202, 168, 0.05);
 }
 
-#certifications .work-item a:hover {
+#experience .work-item a:hover {
     background: rgba(74, 202, 168, 0.15); /* Slightly darker green on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(74, 202, 168, 0.2);
 }
 
-#certifications .work-item h3 {
+#experience .work-item h3 {
     display: flex;
     align-items: center;
     margin-bottom: 0.5em;
 }
 
-#certifications .work-item h3 i {
+#experience .work-item h3 i {
     margin-right: 12px;
     color: #4acaa8; /* Keep icon color green */
     background: rgba(0, 0, 0, 0.8); /* Dark background */
@@ -46,7 +46,7 @@
     animation: gentle-float 3s ease-in-out infinite;
 }
 
-#certifications .work-item:hover h3 i {
+#experience .work-item:hover h3 i {
     animation: none;
     transform: translateY(-2px);
     color: #000; /* Icon becomes black */
@@ -54,16 +54,18 @@
     box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
-#certifications .work-item p {
+#experience .work-item p {
     color: #444;
     margin-bottom: 0;
 }
 
 /* Stagger animation for icons */
-#certifications .work-item:nth-child(1) h3 i { animation-delay: 0s; }
-#certifications .work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
-#certifications .work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
-#certifications .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
+#experience .work-item:nth-child(1) h3 i { animation-delay: 0s; }
+#experience .work-item:nth-child(2) h3 i { animation-delay: 0.75s; }
+#experience .work-item:nth-child(3) h3 i { animation-delay: 1.5s; }
+#experience .work-item:nth-child(4) h3 i { animation-delay: 2.25s; }
+#experience .work-item:nth-child(5) h3 i { animation-delay: 3s; }
+#experience .work-item:nth-child(6) h3 i { animation-delay: 3.75s; }
 
 /* Modal specific styles */
 #certification-modal {

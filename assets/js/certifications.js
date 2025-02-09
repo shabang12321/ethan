@@ -208,6 +208,57 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Mechanical Design'
             ],
             link: null
+        },
+        'startmate': {
+            title: 'Student Fellowship',
+            organization: 'Startmate',
+            date: 'Nov 2024',
+            overview: 'Selected for the prestigious Startmate Student Fellowship program, connecting with some of Australia\'s most ambitious founders, operators and VCs while developing entrepreneurial skills and startup knowledge.',
+            tasks: [
+                {
+                    title: 'Startup Immersion',
+                    details: 'Engaged with successful founders and gained hands-on experience in startup operations and strategy.'
+                },
+                {
+                    title: 'Network Development',
+                    details: 'Built connections with industry leaders, venture capitalists, and fellow entrepreneurs in the Australian startup ecosystem.'
+                },
+                {
+                    title: 'Project Work',
+                    details: 'Collaborated on real startup projects, applying entrepreneurial thinking to solve business, technical and social challenges.'
+                },
+                {
+                    title: 'Skill Development',
+                    details: 'Enhanced understanding of startup methodologies, venture capital, and modern business practices.'
+                }
+            ],
+            skills: [
+                'Entrepreneurship',
+                'Startup Operations',
+                'Venture Capital',
+                'Business Strategy',
+                'Networking',
+                'Innovation',
+                'Problem Solving',
+                'Leadership'
+            ],
+            link: null
+        },
+        'future': {
+            title: 'Future Experience',
+            organization: 'Coming Soon to a theatre near you!',
+            date: 'Future',
+            overview: 'Details of upcoming experience or opportunity will be added here.',
+            tasks: [
+                {
+                    title: 'Placeholder',
+                    details: 'This space is reserved for future experience details.'
+                }
+            ],
+            skills: [
+                'Coming Soon'
+            ],
+            link: null
         }
     };
 

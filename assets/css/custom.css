@@ -770,8 +770,9 @@ textarea::placeholder {
     object-fit: cover;
 }
 
-/* Specific styling for the edge computing thumbnail */
-[data-project="edge-computing"] img {
+/* Specific styling for GIF thumbnails */
+[data-project="edge-computing"] img,
+[data-project="drone-monitoring"] img {
     transform: scale(1.05);
     object-position: center 5%;
 }

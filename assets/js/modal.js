@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Thesis project focusing on edge computing as a solution for enhanced navigation & collision avoidance strategies for autonomous drone swarms. This innovative approach enables real-time decision making and improved swarm coordination through distributed computing architecture.'
         },
         'drone-monitoring': {
-            image: 'images/fulls/02.jpg',
+            image: 'images/fulls/02.gif',
             title: 'Drone Monitoring System',
             description: 'Developed a comprehensive wireless GUI for real-time sensor feedback, sensor-fusion and power supply monitoring. The system provides critical telemetry data and enables efficient drone fleet management through an intuitive interface.'
         },

@@ -771,10 +771,14 @@ textarea::placeholder {
 }
 
 /* Specific styling for GIF thumbnails */
-[data-project="edge-computing"] img,
+[data-project="edge-computing"] img {
+    transform: scale(1.05);
+    object-position: center 5%;  /* Center positioning for edge computing */
+}
+
 [data-project="drone-monitoring"] img {
     transform: scale(1.05);
-    object-position: center 5%;
+    object-position: left center;  /* Left alignment for drone monitoring */
 }
 
 /* Responsive adjustments */

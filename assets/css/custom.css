@@ -757,3 +757,28 @@ textarea::placeholder {
         padding: 0.3em 0.7em;
     }
 }
+
+.image.fit.thumb {
+    height: 300px;  /* Increased from 200px to 300px */
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.image.fit.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Specific styling for the edge computing thumbnail */
+[data-project="edge-computing"] img {
+    transform: scale(1.05);
+    object-position: center 5%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 736px) {
+    .image.fit.thumb {
+        height: 250px;  /* Increased from 180px to 250px for mobile */
+    }
+}

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Project data
     const projects = {
         'edge-computing': {
-            image: 'images/fulls/01.jpg',
+            image: 'images/fulls/01.gif',
             title: 'Edge Computing for Autonomous Swarm Robotics',
             description: 'Thesis project focusing on edge computing as a solution for enhanced navigation & collision avoidance strategies for autonomous drone swarms. This innovative approach enables real-time decision making and improved swarm coordination through distributed computing architecture.'
         },

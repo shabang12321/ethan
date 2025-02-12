@@ -75,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
             description: 'Developed a comprehensive wireless GUI for real-time sensor feedback, sensor-fusion and power supply monitoring. The system provides critical telemetry data and enables efficient drone fleet management through an intuitive interface.'
         },
         'ecommerce': {
-            image: 'images/fulls/03.jpg',
+            image: 'images/fulls/03.gif',
             title: 'E-Commerce Automation',
             description: 'Built and managed four successful online brands with automated systems and marketing strategies. Implemented automated inventory management, order processing, and customer service systems to streamline operations and improve efficiency.'
         },
         'business-transformation': {
-            image: 'images/fulls/04.jpg',
+            image: 'images/fulls/04.gif',
             title: 'Business Digital Transformation',
             description: 'Implemented cloud-based systems for quote & invoice processes at E&E Building Services. Streamlined business operations through digital transformation, resulting in improved workflow efficiency and customer satisfaction.'
         }

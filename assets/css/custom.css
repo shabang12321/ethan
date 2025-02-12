@@ -781,6 +781,16 @@ textarea::placeholder {
     object-position: left center;  /* Left alignment for drone monitoring */
 }
 
+[data-project="ecommerce"] img {
+    transform: scale(1.05);
+    object-position: center center;  /* Center alignment for ecommerce */
+}
+
+[data-project="business-transformation"] img {
+    transform: scale(1.05);
+    object-position: center center;  /* Center alignment for business transformation */
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 736px) {
     .image.fit.thumb {

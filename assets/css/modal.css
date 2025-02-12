@@ -67,6 +67,14 @@
     object-position: left center;
 }
 
+[data-project="ecommerce"] #modal-image {
+    object-position: center center;
+}
+
+[data-project="business-transformation"] #modal-image {
+    object-position: center center;
+}
+
 #modal-title {
     color: #222;
     font-size: 1.4em;

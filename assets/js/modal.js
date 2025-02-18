@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'AWS',
                 'Search Engine Optimization',
                 'TikTok Ads',
-                'Facebook (Meta)Ads',
+                'Facebook (Meta) Ads',
                 'Data Analytics'
             ]
         },

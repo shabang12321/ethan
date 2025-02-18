@@ -55,10 +55,10 @@
 }
 
 #milestones .work-item p {
-    color: #222;
+    color: #333;
     margin-bottom: 0;
-    font-size: 0.95em;  /* Reduced from 1.1em to 0.95em */
-    font-weight: 500;   /* Reduced from 600 to 500 */
+    font-size: 0.95em;
+    font-weight: 500;
 }
 
 /* Stagger animation for icons */
@@ -132,7 +132,7 @@
     color: #4acaa8;
     font-size: 1em;
     margin: 0 0 0.3em 0;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #certification-modal .cert-date {
@@ -192,7 +192,7 @@
 
 .cert-overview h4 i {
     color: #4acaa8;
-    background: rgba(74, 202, 168, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     padding: 0.5rem;
     border-radius: 8px;
     min-width: 2rem;
@@ -201,13 +201,14 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cert-overview:hover h4 i {
     transform: translateY(-2px);
-    background: rgba(74, 202, 168, 0.2);
-    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
 .cert-overview p {
@@ -232,7 +233,7 @@
 
 .cert-skills h4 i {
     color: #4acaa8;
-    background: rgba(74, 202, 168, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     padding: 0.5rem;
     border-radius: 8px;
     min-width: 2rem;
@@ -241,13 +242,14 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cert-skills:hover h4 i {
     transform: translateY(-2px);
-    background: rgba(74, 202, 168, 0.2);
-    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
 /* Tasks Section */
@@ -266,7 +268,7 @@
 
 .cert-tasks h4 i {
     color: #4acaa8;
-    background: rgba(74, 202, 168, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     padding: 0.5rem;
     border-radius: 8px;
     min-width: 2rem;
@@ -275,13 +277,14 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cert-tasks:hover h4 i {
     transform: translateY(-2px);
-    background: rgba(74, 202, 168, 0.2);
-    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
 .cert-tasks ul {

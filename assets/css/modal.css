@@ -56,6 +56,12 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#modal-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 202, 168, 0.2);
 }
 
 /* Project-specific modal image positioning */
@@ -87,6 +93,8 @@
     color: #333;
     line-height: 1.6;
     margin-bottom: 1.5em;
+    font-size: 0.95em;
+    font-weight: 500;
 }
 
 .close-modal {
@@ -117,6 +125,178 @@
     color: #000;
 }
 
+/* Project Modal Specific Styles */
+.project-header {
+    margin-bottom: 2em;
+    padding: 1.5em;
+    background: rgba(74, 202, 168, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(74, 202, 168, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-header:hover {
+    background: rgba(74, 202, 168, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 202, 168, 0.2);
+}
+
+.project-meta {
+    display: flex;
+    gap: 1.5em;
+    margin-top: 0.5em;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.project-meta i {
+    color: #4acaa8;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-meta span:hover i {
+    transform: translateY(-2px);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.project-body > div {
+    padding: 1.5em;
+    background: rgba(74, 202, 168, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(74, 202, 168, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-body > div:hover {
+    background: rgba(74, 202, 168, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 202, 168, 0.2);
+}
+
+.project-body h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    color: #4acaa8;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+.project-body h4 i {
+    color: #4acaa8;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+.project-body > div:hover h4 i {
+    animation: none;
+    transform: translateY(-2px);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
+}
+
+#project-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+#project-features li {
+    background: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 2em;
+    color: #333;
+    font-weight: 500;
+}
+
+#project-features li:before {
+    content: '•';
+    color: #4acaa8;
+    position: absolute;
+    left: 0.8em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#project-features li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
+    background: #f8f9fa;
+}
+
+.project-tech .skills-grid {
+    gap: 0.8em;
+}
+
+.project-tech .skill-tag {
+    background: #fff;
+    color: #222;
+    padding: 0.4em 1em;
+    border-radius: 20px;
+    font-size: 0.9em;
+    border: 1px solid rgba(74, 202, 168, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.project-tech .skill-tag:hover {
+    background: rgba(74, 202, 168, 0.1);
+    border-color: rgba(74, 202, 168, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #222;
+}
+
+/* Animation for floating icons */
+@keyframes gentle-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Stagger animation for icons */
+.project-body > div:nth-child(1) h4 i { animation-delay: 0s; }
+.project-body > div:nth-child(2) h4 i { animation-delay: 0.75s; }
+.project-body > div:nth-child(3) h4 i { animation-delay: 1.5s; }
+.project-body > div:nth-child(4) h4 i { animation-delay: 2.25s; }
+
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .modal-content {
@@ -126,12 +306,16 @@
         max-width: calc(100% - 2em);
     }
 
+    .project-header, .project-body > div {
+        padding: 1em;
+    }
+
     #modal-title {
         font-size: 1.2em;
     }
 
     #modal-description {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }
 
     .close-modal {
@@ -144,5 +328,28 @@
     #modal-image {
         height: 200px;
         margin: 0 0 1em 0;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .project-meta i, .project-body h4 i {
+        padding: 6px;
+        min-width: 28px;
+    }
+
+    #project-features {
+        grid-template-columns: 1fr;
+    }
+
+    .project-body h4 {
+        font-size: 1em;
+    }
+
+    .project-tech .skill-tag {
+        font-size: 0.85em;
+        padding: 0.3em 0.8em;
     }
 } 

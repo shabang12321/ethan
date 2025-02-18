@@ -152,7 +152,7 @@
     margin-left: 35%;
     padding: 4em 2em 2em 2em;
     width: 65%;
-    color: #333;  /* Base text color for main content */
+    color: #333;
 }
 
 #main h2 {
@@ -163,6 +163,7 @@
 #main p {
     color: #333;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 /* Responsive adjustments */
@@ -532,13 +533,13 @@
 .work-item h3 i {
     margin-right: 12px;
     color: #4acaa8;
-    background: rgba(74, 202, 168, 0.15);
+    background: rgba(0, 0, 0, 0.8);
     padding: 8px;
     border-radius: 8px;
     min-width: 32px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(74, 202, 168, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     animation: gentle-float 3s ease-in-out infinite;
 }
 
@@ -553,8 +554,9 @@
 .work-item h3:hover i {
     animation: none;
     transform: translateY(-2px);
-    background: rgba(74, 202, 168, 0.2);
-    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.2);
+    color: #000;
+    background: rgba(74, 202, 168, 0.8);
+    box-shadow: 0 4px 8px rgba(74, 202, 168, 0.3);
 }
 
 /* Stagger animation for each icon */
@@ -667,9 +669,12 @@
 #main p {
     color: #333;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .work-item h3 {
+    display: flex;
+    align-items: center;
     color: #222;
     font-weight: 600;
 }
@@ -677,31 +682,38 @@
 .work-item p {
     color: #333;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 #projects .work-item h3 {
     color: #222;
     margin: 1em 0 0.5em 0;
+    font-weight: 600;
 }
 
 #projects .work-item p {
     color: #333;
+    font-weight: 500;
 }
 
 #contact h2 {
     color: #222;
+    font-weight: 600;
 }
 
 #contact p {
     color: #333;
+    font-weight: 500;
 }
 
 .labeled-icons li {
     color: #333;
+    font-weight: 500;
 }
 
 .labeled-icons h3 {
     color: #222;
+    font-weight: 600;
 }
 
 /* Form elements */
@@ -727,15 +739,16 @@ textarea::placeholder {
 
 #skills .skill-tag {
     background: #f8f9fa;
-    color: #333;
+    color: #222;
     padding: 0.35em 0.8em;
     border-radius: 16px;
     font-size: 0.85em;
     border: 1px solid rgba(74, 202, 168, 0.2);
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(74, 202, 168, 0.1);
-    cursor: default;
+    cursor: text;
     line-height: 1.4;
+    font-weight: 500;
 }
 
 #skills .skill-tag:hover {
